@@ -7,7 +7,7 @@ hide:
 <style>
   .scroll-down-indicator {
     position: absolute;
-    top: 90vh;
+    top: 80vh;
     max-height: 10vh;
     left: 50%;
     transform: translateX(-50%);
