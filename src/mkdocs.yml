@@ -13,6 +13,8 @@ theme:
   features:
     # - header.autohide
     # - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.sections
 
 nav:
   - HOME: 'index.md'
@@ -31,3 +33,5 @@ extra_javascript:
 markdown_extensions:
   - attr_list
   - md_in_html
+
+# plugins: []  # remove search bar
