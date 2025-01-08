@@ -19,28 +19,19 @@ The website is built using [Material for MkDocs](https://squidfunk.github.io/mkd
 
 ### Update content
 
-- Update Markdown files in `src/docs` folder
+- Update Markdown files in `docs` folder
 - Add in extra document, image, pdfs, css, javascript files as needed
-- Update configurations in `src/mkdocs.yml`
+- Update configurations in `mkdocs.yml`
 - Preview the website on localhost:
   
   ```bash
-  cd src
   mkdocs serve
   ```
 
 ### Deploy website
 
-- Change directory to `src`:
+- Use following command to automatically build and deploy website to GitHub:
   
   ```bash
-  cd src
+  mkdocs gh-deploy
   ```
-
-- Build website into `docs` directory (not `src/docs`):
-  
-  ```bash
-  mkdocs build -d ../docs
-  ```
-
-- Commit and push
