@@ -1,6 +1,6 @@
 # Bashor Lab Website Source Code
 
-The source code for the Bashor Lab website.
+The source code for the [Bashor Lab website](cbashorlab.github.io).
 
 The website is built using [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/), which is build based on [MkDocs](https://www.mkdocs.org/) that converts markdown files into website that is deployable.
 
