@@ -4,10 +4,14 @@ hide:
 ---
 
 <style>
-  body {
+  body:before {
     background-image: url('../images/background_cloud_darker.png');
     background-repeat: repeat-y;
     background-attachment: scroll;
+    background-size: contain;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
     background-size: contain;
   }
 
@@ -30,7 +34,6 @@ hide:
 <div class="dilla">
   <img src="../images/background_dilla_darker.png" alt="dilla"/>
 </div>
-
 
 ![Bashor Lab Group Photo](./images/group_photo.jpg)
 
