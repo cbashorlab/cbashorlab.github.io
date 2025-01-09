@@ -1,4 +1,4 @@
-name: deploy-website 
+name: mkdocs-build-website
 on:
   push:
     branches:
@@ -9,6 +9,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.WEB_DEPLOY_PRIVATE_KEY }}
       - uses: actions/checkout@v4
       - name: Configure Git Credentials
         run: |
