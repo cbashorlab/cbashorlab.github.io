@@ -17,8 +17,6 @@ jobs:
         run: |
           git config user.name "Yiduo Wang"
           git config user.email "yiduo@rice.edu"
-      - name: Test push
-        run: git push --all
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
