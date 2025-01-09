@@ -30,8 +30,11 @@ The website is built using [Material for MkDocs](https://squidfunk.github.io/mkd
 
 ### Deploy website
 
-- Use following command to automatically build and deploy website to GitHub:
+- The Bashor Lab website ([cbashorlab.github.io](https://cbashorlab.github.io/)) is automatically updated with [GitHub Actions](https://github.com/features/actions), which triggers an automatic update once it receives a push on `main` branch. The automatic GitHub Actions builds and deploys the website on `gh-pages` branch.
+- If you wish to obtain a deployable version of the website, you can either:
+  - Clone the `gh-pages` branch, or
+  - Use following command to build on the local machine:
   
-  ```bash
-  mkdocs gh-deploy
-  ```
+    ```bash
+    mkdocs gh-deploy
+    ```
