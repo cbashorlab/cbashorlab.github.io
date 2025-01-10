@@ -4,29 +4,7 @@ hide:
   # - navigation
 ---
 
-<style>
-  .scroll-down-indicator {
-    position: absolute;
-    top: 80vh;
-    max-height: 10vh;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .intro-page-image {
-    position: absolute;
-    min-height: 100vh;
-    min-width: 100vw;
-    margin: 0;
-    padding: 0;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    pointer-events: none;
-  }
-</style>
+<link rel="stylesheet" href="../assets/page_index.css" />
 
 ![Lab Scene](./images/lab_scene.png){:.intro-page-image}
 

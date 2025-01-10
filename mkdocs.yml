@@ -19,7 +19,7 @@ theme:
 nav:
   - HOME: 'index.md'
   - PUBLICATIONS: 'publications.md'
-  - PEOPLE: 'roster.md'
+  - ROSTER: 'roster.md'
   - CONTACT: 'contact.md'
   - GitHub: 'https://github.com/cbashorlab'
 

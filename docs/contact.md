@@ -3,29 +3,7 @@ hide:
   - toc
 ---
 
-<style>
-  body:before {
-    background-image: url('../images/background_cloud_darker.png');
-    background-repeat: repeat-y;
-    background-attachment: scroll;
-    background-size: contain;
-    -webkit-background-size: contain;
-    -moz-background-size: contain;
-    -o-background-size: contain;
-    background-size: contain;
-  }
-
-  .dilla img{
-    position: absolute;
-    bottom: 0;
-    min-width: 100vw;
-    left: 50%;
-    transform: translateX(-50%);
-    overflow-x: hidden;
-    overflow-y: hidden;
-    pointer-events: none;
-  }
-</style>
+<link rel="stylesheet" href="../assets/page_contact.css" />
 
 <div class="dilla">
   <img src="../images/background_dilla_darker.png" alt="dilla"/>

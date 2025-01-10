@@ -1,30 +1,11 @@
 ---
 hide:
   - toc
-  
-text-align: center
 ---
 
-<style>
-  .profile-pic {
-    /* float: left;
-    margin-right: 30px; */
-    height: 150px;
-    width: 150px;
-  }
-</style>
+<link rel="stylesheet" href="../assets/page_roster.css" />
 
 # OUR GROUP
-
-## Principal Investigator
-
-### Caleb Bashor
-
-![Caleb Bashor](./images/Caleb-01.png){:.profile-pic}
-
-- Post Doc, Massachusetts Institute of Technology
-- Ph.D Biophysics, University of California, San Francisco
-- B.A. Biochemistry, Reed College
 
 ## Current Members
 
@@ -207,3 +188,13 @@ text-align: center
 ### Vicky Liu
 
 **Undergraduate** - Bioengineering
+
+## Principal Investigator
+
+### Caleb Bashor
+
+![Caleb Bashor](./images/Caleb-01.png){:.profile-pic}
+
+- Post Doc, Massachusetts Institute of Technology
+- Ph.D Biophysics, University of California, San Francisco
+- B.A. Biochemistry, Reed College

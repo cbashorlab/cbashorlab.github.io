@@ -3,13 +3,7 @@ hide:
   - toc
 ---
 
-<style>
-  .download-icon {
-    height: 15px;
-    width: 15px;
-    vertical-align: middle;
-  }
-</style>
+<link rel="stylesheet" href="../assets/page_publications.css" />
 
 # PUBLICATIONS
 
