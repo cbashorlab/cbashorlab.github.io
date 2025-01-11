@@ -7,7 +7,7 @@ hide:
 
 # PUBLICATIONS
 
-Yang, X., Rocks, J. W., Jiang, K., Walters, A. J., Rai, K., Liu, J., ... & Bashor, C. J. (2025). Engineering synthetic phosphorylation signaling networks in human cells. *Science, 387*(6729), 74-81. [![download](./images/PDF_1PDF.png){:.download-icon}](./pdfs/2025_Science_Phospho.pdf)
+Yang, X., Rocks, J. W., Jiang, K., Walters, A. J., Rai, K., Liu, J., ... & Bashor, C. J. (2025). Engineering synthetic phosphorylation signaling networks in human cells. *Science, 387*(6729), 74-81. [![download](./images/PDF_1PDF.png){:.download-icon}](https://www.science.org/stoken/author-tokens/ST-2348/full)
 
 Rai, K., Wang, Y., O’Connell, R. W., Patel, A. B., & Bashor, C. J. (2024). Using Machine Learning to Enhance and Accelerate Synthetic Biology. *Current Opinion in Biomedical Engineering*, 100553. [![download](./images/PDF_1PDF.png){:.download-icon}](./pdfs/2024_ML_synBio_review.pdf)
 
