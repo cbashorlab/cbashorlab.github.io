@@ -9,14 +9,12 @@ hide:
 
 ![Scroll Down](./images/down-arrow.gif){:.scroll-down-indicator}
 
-<div style="height: 100vh"></div>
+<div style="height: calc(100vh + 100px)"></div>
 
-<!-- <div style="height: 45vh"></div> -->
-
-<!-- # ![Welcome to the Bashor Lab](./images/welcome.gif) -->
-# Welcome to the Bashor Lab
+# ![Welcome to the Bashor Lab](./images/welcome.gif){:.welcome}
 
 <!-- <div style="height: 100vh"></div> -->
+
 
 ## WHAT WE DO
 

@@ -1,5 +1,5 @@
 let all_paragraphs =
-	'h1, h2, h3, h4, h5, h6, p, .md-typeset blockquote, .md-typeset dl, .md-typeset figure, .md-typeset ol, .md-typeset pre, .md-typeset ul, scroll-down-indicator';
+	'h1, h2, h3, h4, h5, h6, p, .md-typeset';
 
 // Function to fade in paragraphs
 function fadeInParagraphs() {
@@ -15,7 +15,10 @@ function addFadeOutOnScroll() {
 	window.addEventListener('scroll', () => {
 		paragraphs.forEach((paragraph) => {
 			const rect = paragraph.getBoundingClientRect();
-			if (rect.bottom < 75 || rect.top > window.innerHeight - 75) {
+			if (
+				!paragraph.classList.contains('md-footer-meta') &&
+				(rect.bottom < 100 || rect.top > window.innerHeight - 100)
+			) {
 				paragraph.classList.add('fade-out');
 			} else {
 				paragraph.classList.remove('fade-out');

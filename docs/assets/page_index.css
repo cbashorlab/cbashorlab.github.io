@@ -8,7 +8,7 @@
 
 .intro-page-image {
 	position: absolute;
-	min-height: 100vh;
+	min-height: calc(100vh - 48px);
 	min-width: 100vw;
 	margin: 0;
 	padding: 0;
