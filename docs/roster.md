@@ -7,8 +7,6 @@ hide:
 
 # OUR GROUP
 
-## Current Members
-
 ### Olivia Flynn
 
 ![Olivia Flynn](./images/olivia-01.png){:.profile-pic}
@@ -19,7 +17,7 @@ hide:
 
 ### Tawan (Pop) Kiratiwongwan
 
-![Pop Kiratiwongwan](./images/Pop-01.png){:.profile-pic}
+![Pop Kiratiwongwan](./images/pop-01.png){:.profile-pic}
 
 **PhD Student** - Bioengineering
 
@@ -51,7 +49,7 @@ hide:
 
 ### AJ Walters
 
-![AJ Walters](./images/AJ-01.png){:.profile-pic}
+![AJ Walters](./images/aj-01.png){:.profile-pic}
 
 **PhD Student** - Bioengineering
 
@@ -67,7 +65,7 @@ hide:
 
 ### Yiduo Wang
 
-![Yiduo Wang](./images/Yiduo-01.png){:.profile-pic}
+![Yiduo Wang](./images/yiduo-01.png){:.profile-pic}
 
 **PhD Student** - Bioengineering
 
@@ -75,7 +73,7 @@ hide:
 
 ### Passa Pungchai
 
-![Passa Pungchai](./images/Passa-01.png){:.profile-pic}
+![Passa Pungchai](./images/passa-01.png){:.profile-pic}
 
 **PhD Student** - Bioengineering
 
@@ -113,88 +111,11 @@ hide:
 
 **Undergraduate** - Computer Science
 
-### Brennan Keogh
-
-**Undergraduate** - Bioengineering
-
-## Alumni
-
-### John Her
-
-![John Her](./images/John-01.png){:.profile-pic}
-
-**PhD Student** - Bioengineering
-
-- B.S. Chemical Engineering, University of California, Berkeley
-
-### Ronan O'Connell
-
-![Ronan O'Connell](./images/Ronan-01.png){:.profile-pic}
-
-**PhD Student** - Bioengineering
-
-- M.Eng. Biomedical Engineering, The University of Glasgow, Scotland
-
-### Lucas Brown
-
-![Lucas Brown](./images/Lucas-01.png){:.profile-pic}
-
-**PhD Student** - Systems, Synthetic, and Physcial Biology
-
-- B.S. Biochemistry, Tufts University
-- B.S. Biotechnology, Tufts University
-
-### Xiaoyu Yang
-
-![Xiaoyu Yang](./images/Xiaoyu-01.png){:.profile-pic}
-
-**PhD Student** - Systems, Synthetic, and Physcial Biology
-
-- B.S. Life Science, Peking University
-
-### Trenton Piepergerdes
-
-![Trenton Piepergerdes](./images/Trenton-01.png){:.profile-pic}
-
-**PhD Student** - Bioengineering
-
-- B.S. Biomedical Engineering, Vanderbilt University
-- M.S. Bioengineering, Rice University
-
-### Andrew Sun
-
-**Undergraduate** - Bioengineering
-
-### Jason Nguyen
-
-**Undergraduate** - Bioengineering
-
-### Kaiyi Jiang
-
-**Undergraduate** - Bioengineering
-
-### Kian Samra
-
-**Undergraduate** - Bioengineering
-
-### Melissa Cantú
-
-**Undergraduate** - Bioengineering
-
-### Shonik Ganjoo
-
-**Undergraduate** - Bioengineering
-
-### Vicky Liu
-
-**Undergraduate** - Bioengineering
-
-## Principal Investigator
-
 ### Caleb Bashor
 
-![Caleb Bashor](./images/Caleb-01.png){:.profile-pic}
+![Caleb Bashor](./images/caleb-01.png){:.profile-pic}
 
+- Principal Investigator
 - Post Doc, Massachusetts Institute of Technology
 - Ph.D Biophysics, University of California, San Francisco
 - B.A. Biochemistry, Reed College

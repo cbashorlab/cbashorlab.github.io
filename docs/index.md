@@ -1,18 +1,22 @@
 ---
 hide:
   - toc
-  # - navigation
 ---
 
 <link rel="stylesheet" href="../assets/page_index.css" />
 
-![Lab Scene](./images/lab_scene.png){:.intro-page-image}
+![Lab Scene](./images/lab-scene.png){:.intro-page-image}
 
-![Scroll Down](./images/down_arrow.gif){:.scroll-down-indicator}
+![Scroll Down](./images/down-arrow.gif){:.scroll-down-indicator}
 
 <div style="height: 100vh"></div>
 
-# ![Welcome to the Bashor Lab](./images/Welcome-to-the-Bashor-Lab---edit.gif)
+<!-- <div style="height: 45vh"></div> -->
+
+<!-- # ![Welcome to the Bashor Lab](./images/welcome.gif) -->
+# Welcome to the Bashor Lab
+
+<!-- <div style="height: 100vh"></div> -->
 
 ## WHAT WE DO
 

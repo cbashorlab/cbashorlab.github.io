@@ -20,7 +20,11 @@ nav:
   - HOME: 'index.md'
   - PUBLICATIONS: 'publications.md'
   - ROSTER: 'roster.md'
+  - ALUMNI: 'alumni.md'
   - CONTACT: 'contact.md'
+  - Instagram: 'https://www.instagram.com/bashor_lab/'
+  - X (Twitter): 'https://x.com/BashorLab'
+  - Bluesky: 'https://app.bsky.cz/profile/bashorlab.bsky.social'
   - GitHub: 'https://github.com/cbashorlab'
 
 extra_css:
