@@ -5,11 +5,8 @@ hide:
 
 <link rel="stylesheet" href="../assets/page_contact.css" />
 
-<div class="dilla">
-  <img src="../images/background_dilla_darker.png" alt="dilla"/>
-</div>
 
-![Bashor Lab Group Photo](./images/group_photo.jpg)
+![Bashor Lab Group Photo](./images/group-photo.jpg)
 
 Interested in joining our group? Get in touch at the addresses below! You can also now keep tabs on our publications, activity, and general scientific musings by visiting our [Instagram](https://www.instagram.com/bashor_lab/) page.
 
