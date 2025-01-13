@@ -85,4 +85,4 @@ hide:
 
 **Undergraduate** - Bioengineering
 
-<div style="height: calc(100vw / 6)"></div>
+<div style="height: 18vw"></div>
