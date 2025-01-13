@@ -16,7 +16,7 @@ body:before {
 
 .dilla img {
 	position: absolute;
-	bottom: 0;
+	bottom: 44.4688px;
 	min-width: 100vw;
 	left: 50%;
 	transform: translateX(-50%);

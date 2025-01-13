@@ -84,3 +84,5 @@ hide:
 ### Brennan Keogh
 
 **Undergraduate** - Bioengineering
+
+<div style="height: calc(100vw / 6)"></div>
