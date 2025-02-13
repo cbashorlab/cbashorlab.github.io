@@ -3,7 +3,7 @@ hide:
   - toc
 ---
 
-<link rel="stylesheet" href="../assets/page_publications.css" />
+<link rel="stylesheet" href="../assets/page/publications.css" />
 
 # PUBLICATIONS
 

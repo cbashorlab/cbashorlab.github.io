@@ -7,7 +7,7 @@ body:before {
 	width: 100%;
 	height: 100%;
 	z-index: -10;
-	background: url('../images/background-hou-dark.gif') no-repeat center center;
+	background: url('../../images/background-hou-night-dark.png') no-repeat bottom center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;

@@ -3,7 +3,7 @@ hide:
   - toc
 ---
 
-<link rel="stylesheet" href="../assets/page_contact.css" />
+<link rel="stylesheet" href="../assets/page/contact.css" />
 
 <!-- ![Bashor Lab Group Photo](./images/group-photo.jpg) -->
 

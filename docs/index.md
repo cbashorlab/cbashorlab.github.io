@@ -3,7 +3,7 @@ hide:
   - toc
 ---
 
-<link rel="stylesheet" href="../assets/page_index.css" />
+<link rel="stylesheet" href="../assets/page/index.css" />
 
 <!-- <div class="flicker-gif">
   <img src="../images/flicker.gif" alt="flicker"/>

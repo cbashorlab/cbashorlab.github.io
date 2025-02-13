@@ -3,7 +3,7 @@ hide:
   - toc
 ---
 
-<link rel="stylesheet" href="../assets/page_alumni.css" />
+<link rel="stylesheet" href="../assets/page/alumni.css" />
 
 <div class="dilla">
   <img src="../images/dilla-dark.png" alt="dilla"/>

@@ -28,7 +28,7 @@ nav:
   - GitHub: 'https://github.com/cbashorlab'
 
 extra_css:
-  - assets/stylesheet.css
+  - assets/main.css
   - assets/animation.css
 
 extra_javascript:

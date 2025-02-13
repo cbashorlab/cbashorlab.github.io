@@ -3,7 +3,7 @@ hide:
   - toc
 ---
 
-<link rel="stylesheet" href="../assets/page_roster.css" />
+<link rel="stylesheet" href="../assets/page/roster.css" />
 
 # OUR GROUP
 
