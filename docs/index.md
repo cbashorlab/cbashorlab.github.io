@@ -5,20 +5,27 @@ hide:
 
 <link rel="stylesheet" href="../assets/page_index.css" />
 
+<!-- <div class="flicker-gif">
+  <img src="../images/flicker.gif" alt="flicker"/>
+</div> -->
+
 ![Lab Scene](./images/lab-scene.png){:.intro-page-image}
 
 ![Scroll Down](./images/down-arrow.gif){:.scroll-down-indicator}
 
 <div style="height: calc(100vh + 100px)"></div>
 
-# ![Welcome to the Bashor Lab](./images/welcome.gif){:.welcome}
+# ![Welcome to the Bashor Lab](./images/welcome.gif)
 
-<!-- <div style="height: 100vh"></div> -->
+<div style="height: 5vh"></div>
 
+<!-- ![what-we-do](./images/what-we-do.png) -->
 
 ## WHAT WE DO
 
-***The goal of our work is to use synthetic regulatory circuits to reprogram the behavior of human cells.***{:.center}
+***The goal of our work is to use synthetic regulatory circuits to reprogram the behavior of human cells.***{:.what-we-do}
+
+<div style="height: 40vh"></div>
 
 ## OUR RESEARCH
 

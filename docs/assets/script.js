@@ -29,3 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
 	fadeInParagraphs();
 	addFadeOutOnScroll();
 });
+
+// Function to display GIF when the website is within the top 200vh
+function displayGifOnTop200vh() {
+	const gifElement = document.getElementsByClassName('flicker-gif');
+	if (gifElement.length === 0) return;
+	window.addEventListener('scroll', () => {
+		const scrollPosition = window.scrollY;
+		if (scrollPosition < window.innerHeight * 1.2) {
+			gifElement[0].style.display = 'block';
+		} else {
+			gifElement[0].style.display = 'none';
+		}
+	});
+}
+
+// Initialize GIF display when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+	displayGifOnTop200vh();
+});

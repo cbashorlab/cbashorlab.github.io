@@ -13,3 +13,7 @@ body:before {
 	-o-background-size: cover;
 	background-size: cover;
 }
+
+h3 {
+	padding-top: 5em;
+}

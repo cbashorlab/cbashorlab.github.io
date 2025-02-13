@@ -8,11 +8,11 @@
 
 .intro-page-image {
 	position: absolute;
-	min-height: calc(100vh - 48px);
+	min-height: calc(100vh - 57.5938px);
 	min-width: 100vw;
 	margin: 0;
 	padding: 0;
-	top: 48px;
+	top: 57.5938px;
 	left: 0;
 	object-fit: cover;
 	overflow-x: hidden;
@@ -35,4 +35,24 @@ body:before {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+}
+
+.what-we-do {
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+	/* font-size: 1.5em; */
+}
+
+.flicker-gif img{
+	position: fixed;
+	left: 0;
+	top: 0;
+	min-width: 100vw;
+	min-height: calc(100vh - 57.5938px);
+	z-index: 10;
+	top: 57.5938px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	pointer-events: none;
 }

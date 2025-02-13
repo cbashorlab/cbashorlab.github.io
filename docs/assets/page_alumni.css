@@ -24,3 +24,7 @@ body:before {
 	overflow-y: hidden;
 	pointer-events: none;
 }
+
+h3 {
+	padding-top: 5em;
+}
