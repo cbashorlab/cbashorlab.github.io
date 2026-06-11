@@ -1,0 +1,21 @@
+{
+  "mainTitle": "OUR RESEARCH",
+  "sections": [
+    {
+      "heading": "Synthetic Regulatory Circuits",
+      "content": "Our work explores the fundamentals of gene expression control in mammalian cells. By leveraging multi-scale regulatory control, we can engineer stable, precise control over complex multi-gene expression programs that can both report on and reprogram cellular function."
+    },
+    {
+      "heading": "Synthetic Signaling Networks",
+      "content": "We engineer protein circuits that sense, compute, and respond to extracellular inputs. These circuits serve as model systems for understanding the molecular and biophysical determinants of signal transduction, and can be used to reshape how a cell interacts with its environment."
+    },
+    {
+      "heading": "Data-driven Genetic Design",
+      "content": "We are creating high-throughput experimental pipelines that enable building and testing of synthetic circuits at an unprecedented scale. The data we generate can be used to train AI algorithms that map genetic design space, dramatically increasing the pace of circuit engineering."
+    },
+    {
+      "heading": "Engineering Cell-Based Therapeutics",
+      "content": "Our ultimate goal is to use our work to create safer, more effective cell-based therapies for indications spanning inflammatory disorders, trauma, and cancer. We work closely with translational and clinical researchers to ensure our designs meet real-world constraints and move efficiently toward therapeutic impact."
+    }
+  ]
+}

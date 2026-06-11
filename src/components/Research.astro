@@ -1,0 +1,143 @@
+---
+/**
+ * @file Research.astro
+ * @description Dynamically renders research content sections from local content collections.
+ * Leverages scroll-driven intersection tracking to step-fade layout blocks in and out
+ * based on viewport visibility thresholds, supporting a retro stylistic presentation.
+ */
+
+import { getEntry } from 'astro:content';
+
+/**
+ * Purpose: Fetch the specific configuration and copy data for the research layout.
+ * Functionality: Queries Astro's Content Layer API for a single document key ('research') 
+ * within the 'research' collection directory.
+ */
+const researchEntry = await getEntry('research', 'research');
+
+/**
+ * Data Safeguards & Fallbacks:
+ * Purpose: Ensure the component safely renders even if the local data structure is corrupted or missing.
+ * Functionality: Uses optional chaining (`?.`) combined with nullish coalescing operators (`??`) 
+ * to assign safe, empty fallback primitives (`""` and `[]`) to local variables.
+ */
+const mainTitle = researchEntry?.data.mainTitle ?? "";
+const sections = researchEntry?.data.sections ?? [];
+---
+
+<div
+  class="relative w-full min-h-[300svh] flex flex-col items-center pt-20 md:pt-32 pb-24 md:pb-48 px-6 md:px-10 box-border overflow-x-hidden"
+>
+  <div class="relative z-20 w-full max-w-5xl mx-auto">
+    
+    <header class="w-full mb-16 md:mb-32 text-center">
+      <h1
+        class="pointer-events-none translate-y-8 text-white text-xl md:text-4xl tracking-[0.1em] uppercase transform scale-y-110 md:scale-y-120 font-press-start-2p transition-all duration-[2000ms] cubic-bezier(0.25, 1, 0.5, 1) will-change-[opacity,transform]"
+      >
+        {mainTitle}
+      </h1>
+    </header>
+
+    <div class="flex flex-col gap-24 md:gap-40"> 
+      {
+        sections.map((item) => (
+          /* Fade Target Article Node 
+            Purpose: Container wrapper target built specifically for Intersection Observer hooks.
+            Functionality: Spits out a `.fade-target` reference element. Initializes items as 
+            `opacity-0 invisible pointer-events-none` to guarantee everything stays hidden and 
+            non-clickable until client scripts confirm they are actively scrolling on-screen.
+          */
+          <article class="fade-target opacity-0 invisible pointer-events-none translate-y-8 text-center mx-auto max-w-4xl transition-all duration-[400ms] cubic-bezier(0.25, 1, 0.5, 1) will-change-[opacity,transform]">
+            
+            {/* Section Sub-heading */}
+            <h2 class="text-white text-lg md:text-4xl mb-4 md:mb-8 tracking-[0.1em] transform scale-y-100 origin-center font-press-start-2p">
+              {item.heading}
+            </h2>
+
+            {/* Section Body Copy
+              Purpose: Formats and injects descriptive paragraphs.
+              Functionality: Employs `set:html` to safely render nested markup formatting elements 
+              (such as `<strong>` tags) mixed inside raw content strings retrieved from source entries.
+            */}
+            <p
+              class="text-white text-2xl  md:text-3xl  text-center transform scale-y-105 md:scale-y-110 origin-center font-orange-kid"
+              set:html={item.content}
+            />
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Global Rich-Text Styling Overrides
+    Purpose: Stylizes rich-text markdown injection layouts to conform to stylized guidelines.
+    Functionality: Uses Astro's `:global` directive to punch through component style scoping rules, 
+    stripping default bold weight values from raw markdown `<strong>` tags while converting them 
+    into glowing white, high-contrast neon typographical elements.
+  */
+  article p :global(strong) {
+    color: #fff;
+    font-weight: normal;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  }
+
+  /* Structural letter/word spacing adjustments */
+  article p {
+    word-spacing: 0.1em;
+  }
+</style>
+
+<script>
+  /**
+   * Client-Side Intersection Module
+   * Purpose: Manages dynamic opacity fades and visibility handling as users scroll.
+   * Functionality: Targets all elements tagged with `.fade-target` and applies progressive 
+   * step transitions depending on how much of the component is inside the active window.
+   */
+  const fadeElements = document.querySelectorAll(".fade-target");
+
+  if (fadeElements.length > 0) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const ratio = entry.intersectionRatio;
+          const target = entry.target as HTMLElement;
+
+          if (ratio > 0.3) {
+            // State: Element is comfortably visible inside the main focus viewport area.
+            // Action: Restore full structural visibility, zero out translations, and enable pointer clicks.
+            target.style.opacity = "1";
+            target.style.visibility = "visible";
+            target.style.pointerEvents = "auto";
+            target.style.transform = "translateY(0px)";
+          } else if (ratio > 0.05) {
+            // State: Element is entering or exiting transition boundaries.
+            // Action: Partially dim visibility and step translate downwards to signal transition states.
+            target.style.opacity = "0.3";
+            target.style.visibility = "visible";
+            target.style.pointerEvents = "auto";
+            target.style.transform = "translateY(4px)";
+          } else {
+            // State: Element is completely outside layout focus ranges.
+            // Action: Fully hide layout node to drop graphics rendering overhead, disable focus/clicks.
+            target.style.opacity = "0";
+            target.style.visibility = "hidden";
+            target.style.pointerEvents = "none";
+            target.style.transform = "translateY(32px)";
+          }
+        });
+      },
+      {
+        // Settings: Inset active monitoring bounds by 12% on top and bottom to create a centered visibility lens.
+        rootMargin: "-12% 0px -12% 0px",
+        // Array of visibility cross-sections that fire off the internal callback handlers.
+        threshold: [0, 0.05, 0.15, 0.3, 0.5, 0.7, 1.0]
+      }
+    );
+
+    // Initialize tracking watchers for each individual element target.
+    fadeElements.forEach((el) => observer.observe(el));
+  }
+</script>

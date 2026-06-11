@@ -1,0 +1,143 @@
+---
+/**
+ * @file HeroParallax.astro
+ * @description A high-performance, scroll-driven parallax hero section depicting a lab scene.
+ * It uses multi-layered image assets combined with a RequestAnimationFrame-driven render loop.
+ * The script reads the scroll displacement and applies variable 3D translations to create 
+ * an illusion of physical optical depth. It also manages a context-aware bouncing indicator arrow.
+ */
+
+import layer1 from "../assets/hero/lab_scene_layer_1.png";
+import layer2 from "../assets/hero/lab_scene_layer_2.png";
+import layer3 from "../assets/hero/lab_scene_layer_3.png";
+import layer4 from "../assets/hero/lab_scene_layer_4.png";
+---
+
+<section class="relative bg-transparent" id="parallax-outer">
+  <div class="sticky top-20 h-[130vh] w-full overflow-hidden">
+    
+    <div class="absolute inset-0 w-full h-full" id="parallax-scene">
+      <div class="parallax-layer absolute inset-0 z-10" data-speed="0.1">
+        <img src={layer1.src} alt="" class="w-full h-full object-cover" />
+      </div>
+      <div class="parallax-layer absolute inset-0 z-20" data-speed="0.3">
+        <img src={layer2.src} alt="" class="w-full h-full object-cover" />
+      </div>
+      <div class="parallax-layer absolute inset-0 z-30" data-speed="0.6">
+        <img src={layer3.src} alt="" class="w-full h-full object-cover" />
+      </div>
+      <div class="parallax-layer absolute inset-0 z-100" data-speed="0.9">
+        <img src={layer4.src} alt="" class="w-full h-full object-cover" />
+      </div>
+    </div>
+
+    <div
+      id="hero-arrow"
+      class="absolute bottom-40 left-1/2 -translate-x-1/2 z-50 animate-bounce text-white"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-16 w-16"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"
+        ></path>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Cache DOM nodes to avoid expensive queries inside the high-frequency tick frame loop
+  const outer = document.getElementById("parallax-outer");
+  const layers = document.querySelectorAll(
+    ".parallax-layer",
+  ) as NodeListOf<HTMLElement>;
+  const arrow = document.getElementById("hero-arrow");
+
+  // Animation Variables
+  let requestPos = 0; // Target position (actual raw scroll measurement)
+  let currentPos = 0; // Current position (interpolated position across frame redraws)
+  const ease = 0.1;   // Smoothing coefficient (lower means more elastic inertia, higher means sharper matching)
+
+  /**
+   * Core Animation Loop:
+   * Decouples raw scroll event fires from visual repaints via linear interpolation (LERP) 
+   * and requestAnimationFrame, guaranteeing buttery smooth 60fps+ transitions.
+   */
+  function update() {
+    if (!outer) return;
+
+    // Linear Interpolation: Move current position a fractional percentage closer to target position
+    currentPos += (requestPos - currentPos) * ease;
+
+    // --- Parallax Movement Logic ---
+    layers.forEach((layer) => {
+      const speed = parseFloat(layer.getAttribute("data-speed") || "0");
+      // Scale down movement rate (0.4 factor) to prevent visual elements from moving too drastically
+      const yPos = -(currentPos * speed * 0.4);
+      
+      // translate3d explicitly forces layers onto their own GPU compositing thread for faster hardware rendering
+      layer.style.transform = `translate3d(0, ${yPos}px, 0)`;
+    });
+
+    // --- Indicator Arrow Opacity Logic ---
+    if (arrow) {
+      const rect = outer.getBoundingClientRect();
+      
+      // If container rests exactly at the top boundary, maintain absolute visibility
+      if (rect.top === 0) {
+        arrow.style.opacity = "1";
+      } else {
+        const fadeDistance = 200; // Complete opacity suppression window in pixels
+        const arrowOpacity = Math.max(1 - currentPos / fadeDistance, 0);
+        arrow.style.opacity = arrowOpacity.toString();
+      }
+    }
+
+    // Keep loop active recursively every browser visual tick refresh
+    requestAnimationFrame(update);
+  }
+
+  /**
+   * Scroll Event Listener:
+   * Only calculates layout offset metrics. Declared as a `passive` listener to tell the 
+   * browser engine it won't interrupt thread-scrolling execution, keeping interaction lagless.
+   */
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!outer) return;
+      const rect = outer.getBoundingClientRect();
+      // Track scroll depth when container begins clipping past the top view boundary
+      if (rect.top <= 0) {
+        requestPos = Math.abs(rect.top);
+      }
+    },
+    { passive: true },
+  );
+
+  // Kickstart loop sequence execution on initial component injection instance
+  update();
+</script>
+
+<style>
+  .parallax-layer {
+    /* Optimization telling the compositor to expect transformation updates, mitigating layout recalculations */
+    will-change: transform;
+    /* Preserves sharp individual pixels during up/down scaling for retro pixel art treatments */
+    image-rendering: pixelated;
+  }
+
+  img {
+    /* Prevent mouse drag ghost silhouettes from accidentally throwing off browsing focus */
+    user-select: none;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>

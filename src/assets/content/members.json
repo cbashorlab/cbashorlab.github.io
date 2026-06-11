@@ -1,0 +1,51 @@
+[
+  {
+    "id": "zheng-diao",
+    "name": "Zheng Diao",
+    "occupation": "PhD Student - Systems, Synthetic, and Physical Biology",
+    "distinction": "B.S. Biochemistry, University of Minnesota",
+    "avatar": "/avatars/Zheng.png"
+  },
+  {
+    "id": "alena-streletskaia",
+    "name": "Alena Streletskaia",
+    "occupation": "PhD Student - BioSciences",
+    "distinction": "B.S./M.S. Pharmaceutical Sciences, Lomonosov Moscow State University",
+    "avatar": "/avatars/Alena.png"
+  },
+  {
+    "id": "matthew-lee",
+    "name": "Matthew Lee",
+    "occupation": "PhD Student - BioEngineering",
+    "distinction": "B.S. Materials Engineering, Johns Hopkins University",
+    "avatar": "/avatars/matt.png"
+  },
+  {
+    "id": "stephanie-agu",
+    "name": "Stephanie Agu",
+    "occupation": "Undergraduate- BioEngineering",
+    "distinction": "In Progress Bioengineering, Rice University",
+    "avatar": "/avatars/Stephanie.png"
+  },
+  {
+    "id": "yiduo-wang",
+    "name": "Yiduo Wang",
+    "occupation": "Graduate Student - Bioengineering",
+    "distinction": "B.S. Biochemistry and Computer Science, University of Wisconsin-Madison",
+    "avatar": "/avatars/Yiduo.png"
+  },
+  {
+    "id": "passa-pungchai",
+    "name": "Passa Pungchai",
+    "occupation": "Graduate Student - Bioengineering",
+    "distinction": "B.S. Bioengineering, University of California, Los Angeles (UCLA)",
+    "avatar": "/avatars/Passa.png"
+  },
+  {
+    "id": "caleb-bashor",
+    "name": "Caleb Bashor",
+    "occupation": "Principal Investigator",
+    "distinction": "Post Doc, MIT; Ph.D. Biophysics, UCSF; B.A. Biochemistry, Reed College",
+    "avatar": "/avatars/Caleb.png"
+  }
+]
