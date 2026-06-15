@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-orange-kid: var(--orange-kid);
+  --font-press-start-2p: var(--press-start-2p)
+}

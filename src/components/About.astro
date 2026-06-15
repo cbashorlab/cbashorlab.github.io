@@ -1,0 +1,111 @@
+---
+/**
+ * @file AboutSection.astro
+ * @description Component for displaying lab introduction details with a futuristic/glowing text style.
+ * It dynamically fetches default content from the 'about' collection but accepts prop overrides.
+ * Includes a multi-stage scroll reveal effect driven by an IntersectionObserver.
+ */
+
+import { getEntry } from 'astro:content';
+
+// Define the shape of incoming component properties
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+// Fetch the fallback/default entry from the local 'about' content collection
+const aboutData = await getEntry('about', 'about');
+
+// Extract props, falling back to content collection data, and then to static hardcoded strings
+const {
+    title = aboutData?.data.title ?? "The Bashor Lab (What we do)",
+    description = aboutData?.data.description ?? "We use synthetic biology approaches to design, build, and test artificial regulatory programs in human cells.",
+} = Astro.props;
+
+/**
+ * Text Processing:
+ * Splitting the description block into individual sentences to render them 
+ * as distinct paragraphs. This prevents heavy blocks of text and improves readability.
+ */
+const sentences = description
+    .split('.')
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0);
+
+/**
+ * Styling Constants:
+ * Reusable Tailwind CSS classes for the prominent, retro/cyberpunk "heavy glow" text effect.
+ * Utilizes responsive typography sizing and tiered, complex text-shadows for a bright bloom effect.
+ */
+const heavyGlow = "text-white leading-tight md:leading-relaxed [text-shadow:0_0_5px_#94e2d5,0_0_10px_rgba(148,226,213,0.8)] md:[text-shadow:0_0_5px_#94e2d5,0_0_10px_#94e2d5,0_0_20px_rgba(148,226,213,0.8),0_0_40px_rgba(148,226,213,0.6),0_0_60px_rgba(148,226,213,0.4)]";
+---
+
+<div 
+    id="about-section"
+    class="relative w-full min-h-[140svh] flex items-center justify-center p-6 md:p-12 overflow-hidden font-press-start-2p"
+>
+    <div 
+        id="fade-text" 
+        class="opacity-0 translate-y-4 transition-all duration-[600ms] cubic-bezier(0.25, 1, 0.5, 1) will-change-[opacity,transform] relative z-20 w-full max-w-[1100px] text-center "
+    >
+        <h2 class={`${heavyGlow} text-1xl sm:text-3xl md:text-4xl lg:text-4xl mb-8 md:mb-12 tracking-[2px] md:tracking-[4px]`}>
+            {title}
+        </h2>
+        
+        <div class="flex flex-col space-y-6 md:space-y-10">
+            {sentences.map((sentence) => (
+                <p class={`${heavyGlow} text-sm sm:text-base md:text-lg lg:text-xl max-w-[1000px] mx-auto normal-case text-center`}>
+                    {sentence}.
+                </p>
+            ))}
+        </div>
+    </div>
+</div>
+
+<script>
+  // Select DOM targets for triggering and applying the scroll-based animation
+  const section = document.getElementById("about-section");
+  const target = document.getElementById("fade-text");
+
+  // Safeguard script execution to prevent errors if elements are missing from the DOM
+  if (section && target) {
+    /**
+     * IntersectionObserver Configuration:
+     * Listens for the component's scroll position and dynamically manages styles 
+     * based on how much of the section is visible in the browser viewport.
+     */
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const visibleRatio = entry.intersectionRatio;
+
+          // Stage 1: Fully visible (Over 40% in view) -> Bring to full opacity and original position
+          if (visibleRatio > 0.4) {
+            target.style.opacity = "1";
+            target.style.transform = "translateY(0px)";
+          } 
+          // Stage 2: Partially visible (Between 10% and 40% in view) -> Ghost/semi-visible state
+          else if (visibleRatio > 0.1) {
+            target.style.opacity = "0.4";
+            target.style.transform = "translateY(2px)";
+          } 
+          // Stage 3: Out of view (Under 10% in view) -> Fully hidden and pushed down
+          else {
+            target.style.opacity = "0";
+            target.style.transform = "translateY(16px)"; // Equivalent to initial translate-y-4
+          }
+        });
+      },
+      {
+        // Shrinks the logical boundary of the viewport by 10% top/bottom to prevent abrupt boundary triggers
+        rootMargin: "-10% 0px -10% 0px",
+        // Array of visibility intervals that will fire the observer callback
+        threshold: [0, 0.1, 0.2, 0.4, 0.6, 0.8, 1.0]
+      }
+    );
+
+    // Initialize the tracker on the wrapper section
+    observer.observe(section);
+  }
+</script>

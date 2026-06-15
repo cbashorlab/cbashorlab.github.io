@@ -1,0 +1,74 @@
+---
+/**
+ * @file AlumniList.astro
+ * @description Renders a stylized directory of laboratory or organizational alumni.
+ * This component fetches data from a local Astro content collection and presents each 
+ * alumnus in a responsive row featuring their name, current occupation, profile avatar, 
+ * and specific distinctions. It features a continuous retro animated/static GIF background.
+ */
+
+import { getCollection } from "astro:content";
+import bgImage from "../assets/alumni/background-blue.gif";
+
+/**
+ * Data Fetching:
+ * Pulls all entry objects from the 'alumni' content collection directory.
+ * Because this happens in the frontmatter, it runs entirely at build time (or server-side 
+ * during SSR), ensuring zero client-side performance penalty for data fetching.
+ */
+const members = await getCollection("alumni");
+---
+
+<div
+    class="min-h-screen w-full py-16 px-6 md:px-12 flex flex-col items-center justify-start bg-cover bg-center"
+    style={`background-image: url(${bgImage.src});`}
+>
+    <h2
+        class="text-2xl md:text-4xl text-white mb-16 tracking-wider font-press-start-2p"
+    >
+        OUR ALUMNI
+    </h2>
+
+    <div class="w-full max-w-5xl flex flex-col gap-12">
+        {
+            /* Iterate over the array of retrieved alumni entries. 
+               Each member maps to a structural row that flips layouts gracefully between 
+               stacked columns on mobile and a balanced horizontal row on medium screens and up.
+            */
+            members.map((member) => (
+                <div class="flex flex-col md:flex-row items-center justify-between p-6 md:p-8 gap-6">
+                    
+                    <div class="flex-1 text-center md:text-center">
+                        <h3 class="text-lg md:text-2xl text-white mb-4 leading-relaxed font-press-start-2p">
+                            {member.data.name}
+                        </h3>
+                        <p class="text-2xl md:text-4xl   leading-relaxed max-w-md font-orange-kid">
+                            {member.data.occupation}
+                        </p>
+                    </div>
+
+                    <div class="flex-shrink-0">
+                        <div class="w-60 h-60 md:w-75 md:h-75 rounded-full overflow-hidden flex items-center justify-center ">
+                            {/* Asset Path Resolution:
+                               Prepends `import.meta.env.BASE_URL` to the avatar path string.
+                               This ensures correct asset routing regardless of whether the site 
+                               is hosted at a root domain or a sub-path (e.g., GitHub Pages).
+                            */}
+                            <img
+                                src={`${import.meta.env.BASE_URL}${member.data.avatar}`.replace(/\/+/g, '/')}
+                                alt={member.data.name}
+                                class="w-full h-full object-cover"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="flex-1 text-center md:text-center">
+                        <p class="text-2xl md:text-4xl  leading-relaxed max-w-md mx-auto md:ml-auto md:mr-0 font-orange-kid">
+                            {member.data.distinction}
+                        </p>
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</div>

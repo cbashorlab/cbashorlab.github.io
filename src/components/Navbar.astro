@@ -1,0 +1,234 @@
+---
+/**
+ * @file Navigation.astro
+ * @description Header navigation bar featuring a retro-gaming 8-bit aesthetic. 
+ * Includes an automated typewriter effect for the lab title, a responsive dropdown 
+ * menu driven by UI overlay click rules, and adaptive layout visibility breakpoints 
+ * for embedded project social shortcuts.
+ */
+
+import hamburgerIcon from "../assets/nav/hambuger_menu.png";
+import dropdownBg from "../assets/nav/dropdown_background.png";
+import instaIcon from "../assets/nav/insta_icon.png";
+import githubIcon from "../assets/nav/github_cat.png";
+import xIcon from "../assets/nav/x_logo.png";
+
+/**
+ * Site Navigation Anchors:
+ * Array containing internal element anchors and absolute page routings.
+ * Dynamically prefixes base configurations via `import.meta.env.BASE_URL` 
+ * to remain decoupled from target subdirectory structures.
+ */
+const navLinks = [
+  { name: "HOME", url: import.meta.env.BASE_URL},
+  { name: "About Us", url: "#about" },
+  { name: "Our Research", url: "#research" },
+  { name: "Our Publications", url: "#publications" },
+  { name: "Our Group", url: "#members" },
+  { name: "Our Alumni", url: `${import.meta.env.BASE_URL}/alumnipage`.replace(/\/+/g, '/') },
+  { name: "Contact", url: "#contact" },
+];
+
+/**
+ * External Social Media Portals:
+ * Maps assets and target paths out to the project's online profile destinations.
+ */
+const socialLinks = [
+  {
+    name: "IG",
+    url: "https://www.instagram.com/bashor_lab/",
+    icon: instaIcon.src,
+  },
+  { name: "GH", url: "https://github.com/cbashorlab", icon: githubIcon.src },
+  { name: "X", url: "https://x.com/BashorLab", icon: xIcon.src },
+];
+---
+
+<nav
+  class="sticky top-0 z-[100] border-b-4 border-zinc-900 bg-black px-4 py-4 md:py-2 md:px-10 font-press-start-2p"
+>
+  <div class="mx-auto flex max-w-7xl items-center justify-between">
+    
+    <div class="flex items-center gap-2 md:gap-3 overflow-hidden min-w-0">
+      <h1
+        id="typewriter"
+        class="text-[10px] xs:text-xs sm:text-[14px] md:text-2xl lg:text-3xl text-white leading-none tracking-tight md:tracking-[0.1em]"
+      >
+      </h1>
+      <div
+        id="cursor"
+        class="h-3 w-2 sm:h-4 sm:w-3 md:h-8 md:w-4 bg-white shrink-0"
+      >
+      </div>
+    </div>
+
+    <div class="relative flex items-center gap-3 sm:gap-6 md:gap-10 shrink-0 z-[110]">
+      
+      <div class="hidden items-center gap-5 md:flex">
+        {
+          socialLinks.map((social) => (
+            <a
+              href={social.url}
+              class="transition-transform hover:-translate-y-1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={social.icon} alt={social.name} class="w-8 lg:w-12" />
+            </a>
+          ))
+        }
+      </div>
+
+      <button
+        id="menu-toggle"
+        class="relative z-[120] transition-opacity active:opacity-50 transition-transform hover:-translate-y-1 focus:outline-none"
+        aria-label="Toggle Menu"
+      >
+        <img
+          src={hamburgerIcon.src}
+          alt="Menu"
+          class="w-8 sm:w-10 md:w-14"
+        />
+      </button>
+
+      <div
+        id="mobile-menu"
+        class="hidden absolute right-0 top-[140%] z-[110] w-64 sm:w-72 p-6 sm:p-8 shadow-2xl rounded-sm"
+        style={`background-image: url(${dropdownBg.src}); background-size: 100% 100%; image-rendering: pixelated;`}
+      >
+        <ul
+          class="flex flex-col gap-5 sm:gap-6 text-center text-xs sm:text-sm md:text-lg text-black font-medium"
+        >
+          {
+            navLinks.map((link) => (
+              <li>
+                <a
+                  href={link.url}
+                  class="hover:underline decoration-2 mobile-nav-link"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
+
+          <li
+            class="flex md:hidden items-center justify-center gap-5 pt-5 border-t border-black/20"
+          >
+            {
+              socialLinks.map((social) => (
+                <a
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="transition-transform active:scale-95"
+                >
+                  <img
+                    src={social.icon}
+                    alt={social.name}
+                    class="w-6 h-6 object-contain"
+                  />
+                </a>
+              ))
+            }
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Character Assembly Configurations
+  const text = "WELCOME TO THE BASHOR LAB";
+  const container = document.getElementById("typewriter");
+  let charIndex = 0;
+
+  /**
+   * Typewriter Animation Framework:
+   * Progressively appends substrings to target text elements at fixed 80ms increments.
+   */
+  function typeEffect() {
+    if (container && charIndex < text.length) {
+      container.textContent += text.charAt(charIndex);
+      charIndex++;
+      setTimeout(typeEffect, 80);
+    }
+  }
+
+  // Dropdown Element Selection Framework
+  const menuBtn = document.getElementById("menu-toggle");
+  const menuDropdown = document.getElementById("mobile-menu");
+  const navLinks = document.querySelectorAll(".mobile-nav-link");
+
+  /**
+   * Menu Toggle Handler:
+   * Controls drawer visibility states. `stopPropagation()` stops event pooling 
+   * from hitting global root body contexts, preventing immediate closure loops.
+   */
+  menuBtn?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menuDropdown?.classList.toggle("hidden");
+  });
+
+  /**
+   * Drawer Content Link Selection Tracker:
+   * Forces a dropdown close event when a user selects internal relative anchors, 
+   * updating view positions without locking modal curtains over the screen viewport.
+   */
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      menuDropdown?.classList.add("hidden");
+    });
+  });
+
+  /**
+   * Outside Context Click Controller:
+   * Tracks clicks across the document context to automatically fold up open navigation drawers 
+   * if user clicks outside of the menu overlay boundaries.
+   */
+  document.addEventListener("click", (e) => {
+    const target = e.target as Node;
+    if (menuDropdown && !menuDropdown.contains(target) && !menuBtn?.contains(target)) {
+      menuDropdown.classList.add("hidden");
+    }
+  });
+
+  // Launch text entry cycle processing upon completion of initial DOM structures
+  window.addEventListener("DOMContentLoaded", typeEffect);
+</script>
+
+<style>
+  /* Intermittent blinking emulation mapping a hardware-like terminal line pointer */
+  #cursor {
+    animation: blink 0.8s step-end infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  #typewriter {
+    white-space: nowrap;
+  }
+
+  /* Responsive Fallbacks: Permits string breaks on extreme small form-factors to preserve UI bounds */
+  @media (max-width: 440px) {
+    #typewriter {
+      white-space: normal;
+      word-break: break-word;
+    }
+  }
+
+  /* Overrides basic image interpolation routines to retain pixel-art edge crispness */
+  img {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+  }
+
+  /* Hardware acceleration hint forcing elements safely to distinct GPU compositing targets */
+  nav {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+</style>

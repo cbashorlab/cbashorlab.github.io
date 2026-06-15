@@ -1,0 +1,209 @@
+[
+  {
+    "id": "1",
+    "title": "Ultra-high-throughput mapping of genetic design space",
+    "authors": "Kshitij Rai, Ronan W. O’Connell, Trenton C. Piepergerdes, Yiduo Wang, Lucas B. C. Brown, Kian D. Samra, Jack A. Wilson, Shujian Lin, Thomas H. Zhang, Eduardo M. Ramos, Andrew Sun, Bryce Kille, Kristen D. Curry, Jason W. Rocks, Todd J. Treangen, Pankaj Mehta, Caleb J. Bashor",
+    "journal": "Nature",
+    "year": "2026",
+    "page": "1-10",
+    "url": "/pdfs/Rai_OConnell_CLASSIC.pdf"
+  },
+  {
+    "id": "2",
+    "title": "Engineering synthetic phosphorylation signaling networks in human cells",
+    "authors": "Xiaoyu Yang, Jason W. Rocks, Kaiyi Jiang, Andrew J. Walters, Kshitij Rai, Jing Liu, Jason Nguyen, Scott D. Olson, Pankaj Mehta, Caleb J. Bashor",
+    "journal": "Science",
+    "year": "2025",
+    "page": "387 (6729): 74-81",
+    "url": "https://www.science.org/stoken/author-tokens/ST-2348/full",
+    "features": [
+      {
+        "text": "Comment in Clinical and Translational Medicine 15(5):e70328",
+        "url": "/pdfs/Walters_Yang_2025.pdf"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Using machine learning to enhance and accelerate synthetic biology",
+    "authors": "Kshitij Rai, Yiduo Wang, Ronan W. O’Connell, Ankit B. Patel, Caleb J. Bashor",
+    "journal": "Current Opinion in Biomedical Engineering",
+    "year": "2024",
+    "page": "31: 100553",
+    "url": "/pdfs/2024_ML_synBio_review.pdf"
+  },
+  {
+    "id": "4",
+    "title": "pYtags enable spatiotemporal measurements of receptor tyrosine kinase signaling in living cells",
+    "authors": "Payam E. Farahani, Xiaoyu Yang, Emily V. Mesev, Kaylan A. Fomby, Ellen H. Brumbaugh-Reed, Caleb J. Bashor, Celeste M. Nelson, Jared E. Toettcher",
+    "journal": "eLife",
+    "year": "2023",
+    "page": "",
+    "url": "/pdfs/eLife_2023.pdf"
+  },
+  {
+    "id": "5",
+    "title": "Cooperative assembly confers regulatory specificity and long-term genetic circuit stability",
+    "authors": "Meghan D.J. Bragdon, Nikit Patel, James Chuang, Ethan Levien, Caleb J. Bashor, Ahmad S. Khalil",
+    "journal": "Cell 186, no. 18",
+    "year": "2023",
+    "page": "1-16",
+    "url": "/pdfs/2022_Bashor_BioRXiv.pdf"
+  },
+  {
+    "id": "6",
+    "title": "Engineering the next generation of cell-based therapeutics",
+    "authors": "Caleb J. Bashor, Isaac B. Hilton, Hozefa Bandukwala, Devyn M. Smith, Omid Veiseh",
+    "journal": "Nature Reviews Drug Discovery 21, no. 9",
+    "year": "2022",
+    "page": "655-675",
+    "url": "/pdfs/Bashor_et_al-2022-Nature_Reviews_Drug_Discovery.pdf"
+  },
+  {
+    "id": "7",
+    "title": "Mammalian signaling circuits from bacterial parts",
+    "authors": "Xiaoyu Yang, John Her, Caleb J. Bashor",
+    "journal": "Nature Chemical Biology 16 no. 2",
+    "year": "2019",
+    "page": "110-111",
+    "url": "/pdfs/Yang_Nat-ChemBio_2019.pdf"
+  },
+  {
+    "id": "8",
+    "title": "Designing Automated, High-throughput, Continuous Cell Growth Experiments Using eVOLVER",
+    "authors": "Zachary J. Heins, Christopher P. Mancuso, Szilvia Kiriakov, Brandon G. Wong, Caleb J. Bashor, Ahmad S. Khalil",
+    "journal": "Journal of Visualized Experiments (JoVE) ",
+    "year": "2019",
+    "page": "147: 10-3791",
+    "url": "/pdfs/Heins_Jove_2019.pdf",
+    "videoUrl": "https://www.jove.com/video/59652/designing-automated-high-throughput-continuous-cell-growth"
+  },
+  {
+    "id": "9",
+    "title": "The Least Mating Pathway: Synthetically Refactoring a Familiar Signaling System for New Applications",
+    "authors": "Ronan W. O’Connell, Caleb J. Bashor",
+    "journal": "Cell 177 no. 3",
+    "year": "2019",
+    "page": "521-523",
+    "url": "/pdfs/OConnell_Cell_2019.pdf"
+  },
+  {
+    "id": "10",
+    "title": "Complex signal processing in synthetic gene circuits using cooperative regulatory assemblies",
+    "authors": "Caleb J. Bashor, Nikit Patel, Sandeep Choubey, Ali Beyzavi, Jané Kondev, James J. Collins, Ahmad S. Khalil",
+    "journal": "Science 364, no. 6440",
+    "year": "2019",
+    "page": "593-597",
+    "url": "/pdfs/Bashor_Science_2019.pdf",
+    "features": [
+      {
+        "text": "Perspective by Andrew H. Ng & Hana El-Samad in Science 363(6440): 531",
+        "url": "/pdfs/Bashor_Science_2019.pdf"
+      },
+      {
+        "text": "News & Views Feature by Ross Cloney in Nature Biotechnology 37: 729",
+        "url": "www.nature.com/articles/s41587-019-0182-3"
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "title": "Precise, automated control of conditions for high-throughput growth of yeast and bacteria with eVOLVER",
+    "authors": "Brandon G. Wong, Christopher P. Mancuso, Szilvia Kiriakov, Caleb J. Bashor, Ahmad S. Khalil",
+    "journal": "Nature Biotechnology 36 no. 7",
+    "year": "2018",
+    "page": "614-623",
+    "url": "/pdfs/Wong_NatBiotech_2018.pdf",
+    "features": [
+      {
+        "text": "Technology Feature by Mike May in Nature 569: 587",
+        "url": "https://www.nature.com/articles/d41586-019-01590-z"
+      },
+      {
+        "text": "Featured on the cover of Nature Biotechnology",
+        "url": "https://bashorlab.rice.edu/images/nbt2018-cover.jpg"
+      }
+    ]
+  },
+  {
+    "id": "12",
+    "title": "Understanding Biological Regulation Through Synthetic Biology",
+    "authors": "Caleb J. Bashor, James J. Collins",
+    "journal": "Annual Review of Biophysics 47, no 21",
+    "year": "2018",
+    "page": "399-423",
+    "url": "/pdfs/Bashor_AnnuRevBioPhys_2018.pdf"
+  },
+  {
+    "id": "13",
+    "title": "Engineering dynamical control of cell fate switching using synthetic phospho-regulons",
+    "authors": "Russell M. Gordley, Reid E. Williams, Caleb J. Bashor, Jared E. Toettcher, Shude Yan, Wendell A. Lim",
+    "journal": "Proceedings of the National Academy of Sciences (PNAS) 113 no. 47",
+    "year": "2016",
+    "page": "13528-13533",
+    "url": "/pdfs/Gordley_PNAS_2016.pdf"
+  },
+  {
+    "id": "14",
+    "title": "‘Deadman’ and ‘Passcode’ microbial kill switches for bacterial containment",
+    "authors": "Clement T.Y. Chan, Jeong Wook Lee, D. Ewen Cameron, Caleb J. Bashor, James J. Collins",
+    "journal": "Nature Chemical Biology 12 no. 2",
+    "year": "2016",
+    "page": "82-86",
+    "url": "/pdfs/Chan_NatChemBio_2016.pdf"
+  },
+  {
+    "id": "15",
+    "title": "Using Targeted Chromatin Regulators to Engineer Combinatorial and Spatial Transcriptional Regulation",
+    "authors": "Albert J. Keung, Caleb J. Bashor, Szilvia Kiriakov, James J. Collins, Ahmad S. Khalil",
+    "journal": "Cell 158",
+    "year": "2014",
+    "page": "110-120",
+    "url": "/pdfs/Keung_Cell_2014.pdf"
+  },
+  {
+    "id": "16",
+    "title": "A brief history of synthetic biology",
+    "authors": "D. Ewen Cameron, Caleb J. Bashor, James J. Collins",
+    "journal": "Nature Reviews Microbiology 12, no. 5",
+    "year": "2014",
+    "page": "381-390",
+    "url": "/pdfs/Cameron_NatRevMicrobiol_2014.pdf"
+  },
+  {
+    "id": "17",
+    "title": "Insulating gene circuits from context by RNA processing",
+    "authors": "Caleb J. Bashor, James J. Collins",
+    "journal": "Nature Biotechnology 30, no. 11",
+    "year": "2012",
+    "page": "1061-1062",
+    "url": "/pdfs/Bashor_NatBiotech_2012.pdf"
+  },
+  {
+    "id": "18",
+    "title": "A Synthetic Biology Framework for Programming Eukaryotic Transcription Functions",
+    "authors": "Ahmad S. Khalil, Timothy K. Lu, Caleb J. Bashor, Cherie L. Ramirez, Nora C. Pyenson, J. Keith Joung, James J. Collins",
+    "journal": "Cell 150 no. 3",
+    "year": "2012",
+    "page": "647-658",
+    "url": "/pdfs/Khalil_Cell_2012.pdf"
+  },
+  {
+    "id": "19",
+    "title": "Rewiring Cells: Synthetic Biology as a Tool to Interrogate the Organizational Principles of Living Systems",
+    "authors": "Caleb J. Bashor, Andrew A. Horwitz, Sergio G. Peisajovich, Wendell A. Lim",
+    "journal": "Annual Review of Biophysics 39",
+    "year": "2010",
+    "page": "515-537",
+    "url": "/pdfs/Bashor_AnnuRevBioPhys_2010.pdf"
+  },
+  {
+    "id": "20",
+    "title": "Using Engineered Scaffold Interactions to Reshape MAP Kinase Pathway Signaling Dynamics",
+    "authors": "Caleb J. Bashor, Noah C. Helman, Shude Yan, Wendell A. Lim",
+    "journal": "Science 319, no 5869",
+    "year": "2008",
+    "page": "1539-1543",
+    "url": "/pdfs/Bashor_Science_2008.pdf"
+  }
+]

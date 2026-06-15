@@ -1,0 +1,219 @@
+[
+  {
+    "id": "john-her",
+    "name": "John Her",
+    "occupation": "PhD Student - Bioengineering",
+    "distinction": "B.S. Chemical Engineering, University of California, Berkeley",
+    "avatar": "/avatars/John.png"
+  },
+  {
+    "id": "ronan-oconnell",
+    "name": "Ronan O'Connell",
+    "occupation": "PhD Student - Bioengineering",
+    "distinction": "M.Eng. Biomedical Engineering, The University of Glasgow, Scotland",
+    "avatar": "/avatars/Ronan.png"
+  },
+  {
+    "id": "lucas-brown",
+    "name": "Lucas Brown",
+    "occupation": "PhD Student - Systems, Synthetic, and Physical Biology",
+    "distinction": "B.S. Biochemistry and B.S. Biotechnology, Tufts University",
+    "avatar": "/avatars/Lucas.png"
+  },
+  {
+    "id": "xiaoyu-yang",
+    "name": "Xiaoyu Yang",
+    "occupation": "PhD Student - Systems, Synthetic, and Physical Biology",
+    "distinction": "B.S. Life Science, Peking University",
+    "avatar": "/avatars/Xiaoyu.png"
+  },
+  {
+    "id": "trenton-piepergerdes",
+    "name": "Trenton Piepergerdes",
+    "occupation": "PhD Student - Bioengineering",
+    "distinction": "B.S. Biomedical Engineering, Vanderbilt University; M.S. Bioengineering, Rice University",
+    "avatar": "/avatars/Trenton.png"
+  },
+  {
+    "id": "andrew-sun",
+    "name": "Andrew Sun",
+    "occupation": "Undergraduate - Bioengineering",
+    "distinction": "In Progress - Bioengineering, Rice University",
+    "avatar": "/avatars/Andrew.png"
+  },
+  {
+    "id": "jason-nguyen",
+    "name": "Jason Nguyen",
+    "occupation": "Undergraduate - Bioengineering",
+    "distinction": "In Progress - Bioengineering, Rice University",
+    "avatar": "/avatars/Jason.png"
+  },
+  {
+    "id": "kaiyi-jiang",
+    "name": "Kaiyi Jiang",
+    "occupation": "Undergraduate - Bioengineering",
+    "distinction": "",
+    "avatar": "/avatars/Kaiyi.png"
+  },
+  {
+    "id": "kian-samra",
+    "name": "Kian Samra",
+    "occupation": "Undergraduate - Bioengineering",
+    "distinction": "In Progress - Bioengineering, Rice University",
+    "avatar": "/avatars/Kian.png"
+  },
+  {
+    "id": "melissa-cantu",
+    "name": "Melissa Cantú",
+    "occupation": "Undergraduate - Bioengineering",
+    "distinction": "In Progress - Bioengineering, Rice University",
+    "avatar": "/avatars/Melissa.png"
+  },
+  {
+    "id": "shonik-ganjoo",
+    "name": "Shonik Ganjoo",
+    "occupation": "Undergraduate - Bioengineering",
+    "distinction": "In Progress - Bioengineering, Rice University",
+    "avatar": "/avatars/Shonik.png"
+  },
+  {
+    "id": "vicky-liu",
+    "name": "Vicky Liu",
+    "occupation": "Undergraduate - Bioengineering",
+    "distinction": "In Progress - Bioengineering, Rice University",
+    "avatar": "/avatars/Vicky.png"
+  },
+  {
+    "id": "brennan-keogh",
+    "name": "Brennan Keogh",
+    "occupation": "Undergraduate - Bioengineering",
+    "distinction": "In Progress - Bioengineering, Rice University",
+    "avatar": "/avatars/Placeholder.png"
+  },
+  {
+    "id": "priyanka-sunramanian",
+    "name": "Priyanka Sunramanian",
+    "occupation": "Undergraduate - Bioengineering",
+    "distinction": "In Progress - Bioengineering, Rice University",
+    "avatar": "/avatars/Priyanka.png"
+  },
+  {
+    "id": "lauryn-piggatt",
+    "name": "Lauryn Piggatt",
+    "occupation": "Undergraduate - Bioengineering",
+    "distinction": "In Progress - Bioengineering, Rice University",
+    "avatar": "/avatars/Lauryn.png"
+  },
+  {
+    "id": "alice-zhou",
+    "name": "Alice Zhou",
+    "occupation": "Undergraduate - Bioengineering",
+    "distinction": "In Progress - Bioengineering, Rice University",
+    "avatar": "/avatars/Alice.png"
+  },
+  {
+    "id": "kshitij-rai",
+    "name": "Kshitij Rai",
+    "occupation": "Phd Student - Systems, Synthetic and Physical Biology",
+    "distinction": "B.Eng/M.Eng Chemical Engineering & Biotechnology, Indian Institue of Technology (IIT) Delhi",
+    "avatar": "/avatars/Kshitij.png"
+  },
+  {
+    "id": "tawan-kiratiwongwan",
+    "name": "Tawan (Pop) Kiratiwongwan",
+    "occupation": "Phd Student - Bioengineering",
+    "distinction": "B.BmE Bioengineering, University of Minnesota",
+    "avatar": "/avatars/Pop.png"
+  },
+  {
+    "id": "olivia-flynn",
+    "name": "Olivia Flynn",
+    "occupation": "Phd Student - Systems, Synthetic and Physical Biology",
+    "distinction": "B.S. Chemincal Engineering, University of Notre Dame",
+    "avatar": "/avatars/Olivia.png"
+  },
+  {
+    "id": "aj-walters",
+    "name": "Aj Walters",
+    "occupation": "Phd Student - Bioengineering",
+    "distinction": "B.S. Biological/Biosystems Engineering, Utah State University",
+    "avatar": "/avatars/Aj.png"
+  },
+  {
+    "id": "abram-qui",
+    "name": "Abram Qui",
+    "occupation": "Undergraduate - Bioengineering",
+    "distinction": "In Progress - B.S.B BiologicalEngineering, Rice University",
+    "avatar": "/avatars/Abram.png"
+  },
+  {
+    "id": "olivia-frasher",
+    "name": "Olivia Frasher",
+    "occupation": "Phd Student - Systems, Synthetic and Physical Biology",
+    "distinction": "B.S. Chemincal Engineering, University of Notre Dame",
+    "avatar": "/avatars/Aj.png"
+  },
+  {
+    "id": "shreya-jindal",
+    "name": "Shreya Jindal",
+    "occupation": "Undergraduate - Bioengineering",
+    "distinction": "",
+    "avatar": "/avatars/Shreya.png"
+  },
+  {
+    "id": "yuqing-hua",
+    "name": "Yuqing (Lucia) Hua",
+    "occupation": "Masters Student - Bioengineering",
+    "distinction": "",
+    "avatar": "/avatars/Lucia.png"
+  },
+  {
+    "id": "eddie-ramos",
+    "name": "Eddie Ramos",
+    "occupation": "Undergraduate - Bioengineering",
+    "distinction": "",
+    "avatar": "/avatars/Eddie.png"
+  },
+  {
+    "id": "jack-wilson",
+    "name": "Jack Wilson",
+    "occupation": "Undergraduate - Bioengineering",
+    "distinction": "",
+    "avatar": "/avatars/Jack.png"
+  },
+  {
+    "id": "scott-lin",
+    "name": "Scott Lin",
+    "occupation": "Undergraduate - Bioengineering",
+    "distinction": "",
+    "avatar": "/avatars/Scott.png"
+  },
+  {
+    "id": "noah-keogh",
+    "name": "Noah Keogh",
+    "occupation": "Undergraduate - Bioengineering",
+    "distinction": "",
+    "avatar": "/avatars/Noah.png"
+  },
+  {
+    "id": "thomas-zhang",
+    "name": "Thomas Zhang",
+    "occupation": "Undergraduate - Bioengineering",
+    "distinction": "",
+    "avatar": "/avatars/Thomas.png"
+  },
+  {
+    "id": "akash-kumashi",
+    "name": "Akash Kumashi",
+    "occupation": "Undergraduate - Bioengineering",
+    "distinction": "",
+    "avatar": "/avatars/Akash.png"
+  },
+  {
+    "id": "kajal-patil",
+    "name": "Kajal Patil",
+    "occupation": "Masters Student - Bioengineering",
+    "distinction": "",
+    "avatar": "/avatars/Kajal.png"
+  }
+]

@@ -1,0 +1,207 @@
+---
+/**
+ * @file ContactSection.astro
+ * @description An interactive contact dashboard featuring a retro 8-bit aesthetic. 
+ * This component fetches default details from the 'contact' content collection, 
+ * renders a responsive pixel-art layout, dynamically tracks viewport enter/exit animations 
+ * via IntersectionObservers, and expands an actionable details card upon clicking a title button.
+ */
+
+import { Image } from "astro:assets";
+import contactBg from "../assets/contact/contact-background.gif";
+import { getEntry } from "astro:content";
+
+// Fetch default fallback data from local contact markdown/yaml source at build time
+const contactEntry = await getEntry("contact", "contact");
+
+// Destructure incoming props, providing defaults via fallback entry properties or empty strings
+const {
+  title = contactEntry?.data.title ?? "",
+  email = contactEntry?.data.email ?? "",
+  phone = contactEntry?.data.phone ?? "",
+  address = contactEntry?.data.address ?? "",
+} = Astro.props;
+---
+
+<div
+  id="contact-section"
+  class="relative w-full h-screen flex items-center justify-center p-4 sm:p-6 md:p-12 overflow-hidden"
+>
+  <div
+    class="contact-bg fixed inset-0 opacity-0 transition-opacity duration-700 pointer-events-none h-[120vh] z-0"
+  >
+    <Image
+      src={contactBg}
+      alt="Pixel city background"
+      class="w-full h-full object-cover object-top image-rendering:pixelated"
+      quality="high"
+    />
+  </div>
+
+  <div
+    class="relative z-10 flex flex-col md:flex-row items-center md:items-start justify-center gap-6 max-w-2xl md:max-w-5xl w-full mx-auto px-2 sm:px-0"
+  >
+    <button
+      id="contact-toggle-btn"
+      class="bg-orange-500 border-4 border-black px-6 py-4 md:px-8 md:py-6 shadow-[6px_6px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_rgba(0,0,0,1)] text-center w-fit mx-auto md:mx-0 transform active:translate-y-1 active:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 cursor-pointer focus:outline-none opacity-0 -translate-x-12 md:flex-shrink-0"
+    >
+      <h2
+        class="text-white text-xl sm:text-2xl md:text-4xl font-press-start-2p pointer-events-none tracking-tight whitespace-nowrap"
+      >
+        {title}
+      </h2>
+    </button>
+
+    <div
+      id="contact-content-card"
+      class="bg-[#4D4566]/90 border-4 border-black shadow-[6px_6px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_rgba(0,0,0,1)] w-full text-lg sm:text-xl md:text-4xl leading-relaxed text-white font-orange-kid
+             opacity-0 max-h-0 md:max-h-none md:max-w-0 overflow-hidden pointer-events-none
+             transition-all duration-500 ease-in-out"
+    >
+      <div class="p-5 sm:p-8 md:p-10 md:w-[550px]">
+        <p
+          class="mb-4 sm:mb-6 text-gray-200 text-sm sm:text-base md:text-2xl font-orange-kid"
+        >
+          Interested in joining our group? Get in touch at the addresses below!
+          You can also now keep tabs on our publications, activity, and general
+          scientific musings by visiting our Instagram page.
+        </p>
+
+        <div class="space-y-4 sm:space-y-6 text-base sm:text-lg md:text-2xl">
+          <div class="flex flex-col gap-0.5 sm:gap-2">
+            <span class="text-orange-400 font-bold sm:min-w-[80px]">Email:</span>
+            <a
+              href={`mailto:${email}`}
+              class="text-white hover:text-orange-300 break-all underline decoration-dotted inline-block"
+            >
+              {email}
+            </a>
+          </div>
+
+          <div class="flex flex-col gap-0.5 sm:gap-2">
+            <span class="text-orange-400 font-bold sm:min-w-[80px]">Phone:</span>
+            <a
+              href={`tel:${phone}`}
+              class="text-white hover:text-orange-300 inline-block"
+            >
+              {phone}
+            </a>
+          </div>
+
+          <div
+            class="flex flex-col gap-0.5 sm:gap-2 pt-3 border-t border-dashed border-gray-500"
+          >
+            <span class="text-orange-400 font-bold sm:min-w-[80px]">Address:</span>
+            <span
+              class="text-gray-300 leading-normal flex-1 text-sm sm:text-base md:text-xl"
+            >
+              {address}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Keyframes mimicking a smooth mechanical pop/slide from the left screen boundary */
+  @keyframes slideInFromLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-32px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Utility animation driver utilizing a smooth decelerating cubic-bezier curve */
+  .animate-slide-in {
+    animation: slideInFromLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+</style>
+
+<script>
+  // Elements linked to card open/close actions and scroll entry transitions
+  const toggleBtn = document.getElementById("contact-toggle-btn");
+  const contentCard = document.getElementById("contact-content-card");
+
+  /**
+   * Toggle Button Entrance Observer:
+   * Triggers the `animate-slide-in` CSS slide-in animation whenever the contact 
+   * button enters 10% or more of the user's viewport, then unobserves to optimize performance.
+   */
+  if (toggleBtn) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-slide-in");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(toggleBtn);
+  }
+
+  /**
+   * Click Event Handler:
+   * Alternates classes to control layout dimension changes, tracking cross-device rendering profiles.
+   */
+  toggleBtn?.addEventListener("click", () => {
+    // Shifts color shades on active state toggle
+    toggleBtn.classList.toggle("bg-orange-600");
+
+    // Reveal container visibility and enable mouse/touch events
+    contentCard?.classList.toggle("opacity-0");
+    contentCard?.classList.toggle("pointer-events-none");
+
+    // Responsive Mobile Rules: Handles expansion vertically via max-height toggling
+    contentCard?.classList.toggle("max-h-0");
+    contentCard?.classList.toggle("opacity-100");
+    contentCard?.classList.toggle("max-h-[1200px]");
+
+    // Responsive Desktop Rules (md breakpoint): Handles expansion horizontally via max-width toggling
+    contentCard?.classList.toggle("md:max-w-0");
+    contentCard?.classList.toggle("md:max-w-[600px]"); 
+  });
+</script>
+
+<script>
+  // Selection criteria targets for ambient backdrop fades
+  const section = document.getElementById("contact-section");
+  const backgrounds = document.querySelectorAll(".contact-bg");
+
+  /**
+   * Background Performance Observer:
+   * Manages global opacity hooks dynamically. When the wrapper section rolls completely out 
+   * of sight, asset elements are faded to 0 to minimize graphics compositing loads.
+   */
+  if (section && backgrounds.length > 0) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            backgrounds.forEach((bg) => {
+              bg.classList.remove("opacity-0");
+              bg.classList.add("opacity-100");
+            });
+          } else {
+            backgrounds.forEach((bg) => {
+              bg.classList.remove("opacity-100");
+              bg.classList.add("opacity-0");
+            });
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(section);
+  }
+</script>
