@@ -11,6 +11,7 @@ import layer1 from "../assets/hero/lab_scene_layer_1.png";
 import layer2 from "../assets/hero/lab_scene_layer_2.png";
 import layer3 from "../assets/hero/lab_scene_layer_3.png";
 import layer4 from "../assets/hero/lab_scene_layer_4.png";
+import staticFlicker from "../assets/hero/static-flicker.gif";
 ---
 
 <section class="relative bg-transparent" id="parallax-outer">
@@ -28,6 +29,13 @@ import layer4 from "../assets/hero/lab_scene_layer_4.png";
       </div>
       <div class="parallax-layer absolute inset-0 z-100" data-speed="0.9">
         <img src={layer4.src} alt="" class="w-full h-full object-cover" />
+      </div>
+
+      <div
+        id="hero-flicker"
+        class="absolute inset-0 z-[110] pointer-events-none"
+      >
+        <img src={staticFlicker.src} alt="" class="w-full h-full object-cover" />
       </div>
     </div>
 
@@ -130,6 +138,20 @@ import layer4 from "../assets/hero/lab_scene_layer_4.png";
     will-change: transform;
     /* Preserves sharp individual pixels during up/down scaling for retro pixel art treatments */
     image-rendering: pixelated;
+  }
+
+  /* CRT/TV-static flicker overlay. The effect is baked into the GIF itself, just
+     like the original Webflow site: ~11 opaque full-screen static frames play as a
+     quick burst, then a long transparent final frame leaves the scene clear before
+     the loop repeats. So we simply display the GIF at full opacity and let its own
+     frame timing drive the periodic flicker — no CSS animation involved. */
+  #hero-flicker {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    /* Suppress the flickering static entirely for reduced-motion users. */
+    #hero-flicker { display: none; }
   }
 
   img {

@@ -80,16 +80,16 @@ const heavyGlow = "text-white leading-tight md:leading-relaxed [text-shadow:0_0_
         entries.forEach((entry) => {
           const visibleRatio = entry.intersectionRatio;
 
-          // Stage 1: Fully visible (Over 40% in view) -> Bring to full opacity and original position
+          // Stage 1: Fully visible (Over 40% in view) -> Settle into a soft, semi-transparent reveal
           if (visibleRatio > 0.4) {
-            target.style.opacity = "1";
+            target.style.opacity = "0.7";
             target.style.transform = "translateY(0px)";
-          } 
+          }
           // Stage 2: Partially visible (Between 10% and 40% in view) -> Ghost/semi-visible state
           else if (visibleRatio > 0.1) {
-            target.style.opacity = "0.4";
+            target.style.opacity = "0.25";
             target.style.transform = "translateY(2px)";
-          } 
+          }
           // Stage 3: Out of view (Under 10% in view) -> Fully hidden and pushed down
           else {
             target.style.opacity = "0";

@@ -72,18 +72,15 @@ import video_icon from "../assets/publications/VIDEO.png";
       {
         pubs.map((pub) => {
           return (
-            <div class="flex flex-col space-y-3">
+            <div class="pub-fade opacity-0 translate-y-6 transition-all duration-[400ms] cubic-bezier(0.25,1,0.5,1) will-change-[opacity,transform] flex flex-col space-y-3">
               <div class="flex flex-row items-start justify-between group gap-8">
                 
                 <div class="text-white text-2xl md:text-3xl leading-[1.4] max-w-3xl font-orange-kid">
-                  <span class="text-gray-300">
-                    {pub.data.authors} ({pub.data.year})
-                  </span>{" "}
-                  <span>
-                    {pub.data.title}.{" "}
-                    <span class="text-white font-bold">{pub.data.journal}</span>
-                    {pub.data.page && <span>. {pub.data.page}</span>}
-                  </span>
+                  <span>{pub.data.authors} ({pub.data.year}). </span>
+                  <span>{pub.data.title}. </span>
+                  <span class="italic">{pub.data.journal}</span>
+                  {pub.data.page && <span>. {pub.data.page}</span>}
+                  <span>.</span>
                 </div>
 
                 <div class="flex flex-col gap-3 flex-shrink-0 pt-1">
@@ -206,6 +203,42 @@ import video_icon from "../assets/publications/VIDEO.png";
     );
 
     observer.observe(section);
+  }
+
+  /**
+   * Per-Citation Fade Observer:
+   * Progressively fades each publication entry in as it enters the viewport and
+   * back out as it is scrolled up and away, keeping the listing consistent with
+   * the fade behavior used across the rest of the site.
+   */
+  const pubFades = document.querySelectorAll(".pub-fade");
+
+  if (pubFades.length > 0) {
+    const fadeObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const ratio = entry.intersectionRatio;
+          const target = entry.target as HTMLElement;
+
+          if (ratio > 0.25) {
+            target.style.opacity = "1";
+            target.style.transform = "translateY(0px)";
+          } else if (ratio > 0.05) {
+            target.style.opacity = "0.4";
+            target.style.transform = "translateY(3px)";
+          } else {
+            target.style.opacity = "0";
+            target.style.transform = "translateY(24px)";
+          }
+        });
+      },
+      {
+        rootMargin: "-8% 0px -8% 0px",
+        threshold: [0, 0.05, 0.25, 0.5, 1.0],
+      },
+    );
+
+    pubFades.forEach((el) => fadeObserver.observe(el));
   }
 </script>
 
