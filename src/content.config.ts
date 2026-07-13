@@ -70,9 +70,10 @@ const alumni = defineCollection({
   schema: z.object({
     id: z.string(),
     name: z.string(),
-    occupation: z.string(),  // Past role or current destination post-exit
-    distinction: z.string(), // Awards won or year of graduation/departure
-    avatar: z.string(),      // Profile image path
+    occupation: z.string(),  // Lab role held while in the group (e.g. "PhD, BioE")
+    distinction: z.string(), // Destination — where they are now / went after the lab
+    // Alumni are shown as a text list (no per-person portrait), so no avatar field.
+    // Existing portraits are surfaced separately as a gallery (see alumni_avatars.json).
   }),
 });
 

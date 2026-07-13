@@ -26,13 +26,17 @@ const sections = researchEntry?.data.sections ?? [];
 ---
 
 <div
-  class="relative w-full min-h-[300svh] flex flex-col items-center pt-20 md:pt-32 pb-24 md:pb-48 px-6 md:px-10 box-border overflow-x-hidden"
+  class="relative w-full flex flex-col items-center pt-20 md:pt-32 pb-0 px-6 md:px-10 box-border overflow-x-hidden"
 >
   <div class="relative z-20 w-full max-w-5xl mx-auto">
     
-    <header class="w-full mb-16 md:mb-32 text-center">
+    {/* The title shares the same `.fade-target` scroll-driven fade in/out as the
+        body paragraphs below (see the intersection observer script). The class
+        lives on the <header> wrapper — not the <h1> — so the observer's inline
+        transform (translateY) doesn't overwrite the heading's scale-y stretch. */}
+    <header class="fade-target opacity-0 invisible pointer-events-none translate-y-8 w-full mb-16 md:mb-32 text-center transition-all duration-[400ms] cubic-bezier(0.25, 1, 0.5, 1) will-change-[opacity,transform]">
       <h1
-        class="pointer-events-none translate-y-8 text-white text-xl md:text-4xl tracking-[0.1em] uppercase transform scale-y-110 md:scale-y-120 font-press-start-2p transition-all duration-[2000ms] cubic-bezier(0.25, 1, 0.5, 1) will-change-[opacity,transform]"
+        class="text-white text-xl md:text-3xl lg:text-4xl tracking-[0.1em] uppercase transform scale-y-110 md:scale-y-120 font-press-start-2p"
       >
         {mainTitle}
       </h1>
@@ -50,7 +54,7 @@ const sections = researchEntry?.data.sections ?? [];
           <article class="fade-target opacity-0 invisible pointer-events-none translate-y-8 text-center mx-auto max-w-4xl transition-all duration-[400ms] cubic-bezier(0.25, 1, 0.5, 1) will-change-[opacity,transform]">
             
             {/* Section Sub-heading */}
-            <h2 class="text-white text-lg md:text-4xl mb-4 md:mb-8 tracking-[0.1em] transform scale-y-100 origin-center font-press-start-2p">
+            <h2 class="text-white text-lg md:text-3xl lg:text-4xl mb-4 md:mb-8 tracking-[0.1em] transform scale-y-100 origin-center font-press-start-2p">
               {item.heading}
             </h2>
 
@@ -60,13 +64,22 @@ const sections = researchEntry?.data.sections ?? [];
               (such as `<strong>` tags) mixed inside raw content strings retrieved from source entries.
             */}
             <p
-              class="text-white text-3xl md:text-5xl text-center transform scale-y-105 md:scale-y-110 origin-center font-orange-kid"
+              class="text-white text-3xl md:text-4xl lg:text-5xl text-center transform scale-y-105 md:scale-y-110 origin-center font-orange-kid"
               set:html={item.content}
             />
           </article>
         ))
       }
     </div>
+  </div>
+
+  {/* Gradient void: fades the blue-GIF background down to solid black so Research
+      transitions smoothly into the black Publications section below. Full-bleed
+      (w-screen) so the black reaches the horizontal edges past the section padding. */}
+  <div
+    class="w-screen h-[40vh] mt-24 md:mt-32 pointer-events-none"
+    style="background: linear-gradient(to bottom, transparent, #000000);"
+  >
   </div>
 </div>
 

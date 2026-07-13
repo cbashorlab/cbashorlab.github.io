@@ -19,14 +19,18 @@ import xIcon from "../assets/nav/x_logo.png";
  * Dynamically prefixes base configurations via `import.meta.env.BASE_URL` 
  * to remain decoupled from target subdirectory structures.
  */
+// Section anchors are prefixed with the home path (not bare "#..." hashes) so
+// they still navigate back to the right section when clicked from /alumnipage.
+const withBase = (path: string) => `${import.meta.env.BASE_URL}/${path}`.replace(/\/+/g, '/');
+
 const navLinks = [
-  { name: "HOME", url: import.meta.env.BASE_URL},
-  { name: "About Us", url: "#about" },
-  { name: "Our Research", url: "#research" },
-  { name: "Our Publications", url: "#publications" },
-  { name: "Our Group", url: "#members" },
-  { name: "Our Alumni", url: `${import.meta.env.BASE_URL}/alumnipage`.replace(/\/+/g, '/') },
-  { name: "Contact", url: "#contact" },
+  { name: "Home", url: withBase("") },
+  { name: "About Us", url: withBase("#about") },
+  { name: "Research", url: withBase("#research") },
+  { name: "Publications", url: withBase("#publications") },
+  { name: "Roster", url: withBase("#members") },
+  { name: "Alumni", url: withBase("alumnipage") },
+  { name: "Contact", url: withBase("#contact") },
 ];
 
 /**
@@ -47,24 +51,21 @@ const socialLinks = [
 <nav
   class="sticky top-0 z-[100] border-b-4 border-zinc-900 bg-black px-4 py-4 md:py-2 md:px-10 font-press-start-2p"
 >
-  <div class="mx-auto flex max-w-7xl items-center justify-between">
-    
-    <div class="flex items-center gap-2 md:gap-3 overflow-hidden min-w-0">
+  <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 sm:gap-6 md:gap-8">
+
+    <div class="overflow-hidden min-w-0">
       <h1
-        id="typewriter"
-        class="text-[10px] xs:text-xs sm:text-[14px] md:text-2xl lg:text-3xl text-white leading-none tracking-tight md:tracking-[0.1em]"
-      >
-      </h1>
-      <div
-        id="cursor"
-        class="h-3 w-2 sm:h-4 sm:w-3 md:h-8 md:w-4 bg-white shrink-0"
-      >
-      </div>
+        id="title-line"
+        class="text-[9px] sm:text-sm md:text-base lg:text-2xl xl:text-3xl text-white leading-tight md:leading-none tracking-tight"
+      ><span id="typewriter"></span><span
+          id="cursor"
+          class="inline-block align-middle ml-1 md:ml-2 h-2.5 w-1.5 sm:h-4 sm:w-3 md:h-8 md:w-4 bg-white"
+        ></span></h1>
     </div>
 
-    <div class="relative flex items-center gap-3 sm:gap-6 md:gap-10 shrink-0 z-[110]">
-      
-      <div class="hidden items-center gap-5 md:flex">
+    <div class="relative flex items-center gap-2.5 sm:gap-5 md:gap-6 shrink-0 z-[110]">
+
+      <div class="flex items-center gap-2.5 sm:gap-4 md:gap-5">
         {
           socialLinks.map((social) => (
             <a
@@ -73,7 +74,7 @@ const socialLinks = [
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={social.icon} alt={social.name} class="w-8 lg:w-12" />
+              <img src={social.icon} alt={social.name} class="w-6 sm:w-8 lg:w-12" />
             </a>
           ))
         }
@@ -87,7 +88,7 @@ const socialLinks = [
         <img
           src={hamburgerIcon.src}
           alt="Menu"
-          class="w-8 sm:w-10 md:w-14"
+          class="w-7 sm:w-10 md:w-14"
         />
       </button>
 
@@ -111,27 +112,6 @@ const socialLinks = [
               </li>
             ))
           }
-
-          <li
-            class="flex md:hidden items-center justify-center gap-5 pt-5 border-t border-black/20"
-          >
-            {
-              socialLinks.map((social) => (
-                <a
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="transition-transform active:scale-95"
-                >
-                  <img
-                    src={social.icon}
-                    alt={social.name}
-                    class="w-6 h-6 object-contain"
-                  />
-                </a>
-              ))
-            }
-          </li>
         </ul>
       </div>
     </div>
@@ -208,16 +188,16 @@ const socialLinks = [
     50% { opacity: 0; }
   }
 
-  #typewriter {
-    white-space: nowrap;
-  }
-
-  /* Responsive Fallbacks: Permits string breaks on extreme small form-factors to preserve UI bounds */
-  @media (max-width: 440px) {
-    #typewriter {
-      white-space: normal;
-      word-break: break-word;
-    }
+  /* The title text and its trailing block cursor share one inline flow inside
+     #title-line so the cursor always sits immediately after the last typed
+     character. The text wraps at word boundaries so the full
+     "WELCOME TO THE BASHOR LAB" is always shown rather than being clipped when it
+     can't fit on one line (e.g. at tablet widths, where Press Start 2P is too wide
+     for a single line next to the social icons). It stays on one line whenever it
+     fits; `overflow-wrap: break-word` is a fallback for very narrow screens. */
+  #title-line {
+    white-space: normal;
+    overflow-wrap: break-word;
   }
 
   /* Overrides basic image interpolation routines to retain pixel-art edge crispness */

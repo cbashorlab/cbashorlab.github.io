@@ -1,74 +1,139 @@
 ---
 /**
  * @file AlumniList.astro
- * @description Renders a stylized directory of laboratory or organizational alumni.
- * This component fetches data from a local Astro content collection and presents each 
- * alumnus in a responsive row featuring their name, current occupation, profile avatar, 
- * and specific distinctions. It features a continuous retro animated/static GIF background.
+ * @description Renders the lab's alumni as a three-column text list (Name · Role ·
+ * where they are now). The scene is built from layered pixel-art art: a static dark
+ * night-sky fill, a cloud layer behind the content, and a grassy "dilla" (armadillo) ground layer
+ * in front of the content — the same background/foreground layering used by the
+ * Publications section. Existing member portraits are shown together as a gallery at
+ * the bottom. Gallery avatars come from a plain JSON manifest so they stay decoupled
+ * from the (avatar-less) alumni schema.
  */
 
 import { getCollection } from "astro:content";
-import bgImage from "../assets/alumni/background-blue.gif";
+import cloudBg from "../assets/alumni/background-cloud-dark.png";
+import dillaFg from "../assets/alumni/dilla.png";
+import alumniData from "../assets/content/alumni.json";
+import galleryAvatars from "../assets/content/alumni_avatars.json";
 
 /**
- * Data Fetching:
- * Pulls all entry objects from the 'alumni' content collection directory.
- * Because this happens in the frontmatter, it runs entirely at build time (or server-side 
- * during SSR), ensuring zero client-side performance penalty for data fetching.
+ * Fetch alumni and re-sort to match the order in alumni.json, since getCollection()
+ * does not guarantee it preserves the source array order.
  */
-const members = await getCollection("alumni");
+const alumniOrder = new Map(alumniData.map((a, index) => [a.id, index]));
+const alumni = (await getCollection("alumni")).sort(
+  (a, b) => (alumniOrder.get(a.id) ?? 0) - (alumniOrder.get(b.id) ?? 0),
+);
+
+const BASE = import.meta.env.BASE_URL;
 ---
 
 <div
-    class="min-h-screen w-full py-16 px-6 md:px-12 flex flex-col items-center justify-start bg-cover bg-center"
-    style={`background-image: url(${bgImage.src});`}
+    class="relative min-h-screen w-full pt-16 pb-[35vh] px-6 md:px-12 flex flex-col items-center justify-start overflow-hidden"
+    style="background-color: #142224;"
 >
-    <h2
-        class="text-2xl md:text-4xl text-white mb-16 tracking-wider font-press-start-2p"
-    >
-        OUR ALUMNI
-    </h2>
+    {/* Background layer: clouds cover the sky. The layer tucks a few px UNDER the
+        fixed navbar (top-14 sits below the shortest navbar height at every
+        breakpoint) so the opaque navbar caps the image top — no base-sky seam,
+        while the image still reads as starting right at the strip. */}
+    <div class="fixed inset-x-0 top-14 bottom-0 z-0 pointer-events-none">
+        <img
+            src={cloudBg.src}
+            alt=""
+            class="w-full h-full object-cover object-top [image-rendering:pixelated]"
+        />
+    </div>
 
-    <div class="w-full max-w-5xl flex flex-col gap-12">
-        {
-            /* Iterate over the array of retrieved alumni entries. 
-               Each member maps to a structural row that flips layouts gracefully between 
-               stacked columns on mobile and a balanced horizontal row on medium screens and up.
-            */
-            members.map((member) => (
-                <div class="flex flex-col md:flex-row items-center justify-between p-6 md:p-8 gap-6">
-                    
-                    <div class="flex-1 text-center md:text-center">
-                        <h3 class="text-lg md:text-2xl text-white mb-4 leading-relaxed font-press-start-2p">
+    {/* Foreground content (sits above the clouds, behind the grass) */}
+    <div class="relative z-10 w-full flex flex-col items-center">
+        <h2
+            id="alumni-title"
+            class="opacity-0 translate-y-6 transition-all duration-1000 ease-out will-change-[opacity,transform] text-2xl md:text-4xl text-white mb-12 md:mb-16 tracking-wider font-press-start-2p"
+        >
+            OUR ALUMNI
+        </h2>
+
+        {/* Three-column list: Name · Role · Where they are now */}
+        <div class="w-full max-w-5xl flex flex-col">
+            {/* Column headers (desktop only) */}
+            <div
+                class="hidden md:grid grid-cols-[1.1fr_1fr_1.5fr] gap-6 px-4 pb-3 border-b-2 border-white/30 font-press-start-2p text-[11px] uppercase tracking-wider text-white/60"
+            >
+                <span>Name</span>
+                <span>Role</span>
+                <span>Now</span>
+            </div>
+
+            {
+                alumni.map((member) => (
+                    <div class="grid grid-cols-1 md:grid-cols-[1.1fr_1fr_1.5fr] gap-1 md:gap-6 px-4 py-5 border-b border-white/10 md:items-baseline">
+                        <h3 class="text-sm md:text-base text-white leading-relaxed font-press-start-2p">
                             {member.data.name}
                         </h3>
-                        <p class="text-2xl md:text-4xl   leading-relaxed max-w-md font-orange-kid">
+                        <p class="text-xl md:text-2xl text-white/85 leading-snug font-orange-kid">
                             {member.data.occupation}
                         </p>
-                    </div>
-
-                    <div class="flex-shrink-0">
-                        <div class="w-60 h-60 md:w-75 md:h-75 rounded-full overflow-hidden flex items-center justify-center ">
-                            {/* Asset Path Resolution:
-                               Prepends `import.meta.env.BASE_URL` to the avatar path string.
-                               This ensures correct asset routing regardless of whether the site 
-                               is hosted at a root domain or a sub-path (e.g., GitHub Pages).
-                            */}
-                            <img
-                                src={`${import.meta.env.BASE_URL}${member.data.avatar}`.replace(/\/+/g, '/')}
-                                alt={member.data.name}
-                                class="w-full h-full object-cover"
-                            />
-                        </div>
-                    </div>
-
-                    <div class="flex-1 text-center md:text-center">
-                        <p class="text-2xl md:text-4xl  leading-relaxed max-w-md mx-auto md:ml-auto md:mr-0 font-orange-kid">
+                        <p class="text-xl md:text-2xl text-white/85 leading-snug font-orange-kid">
                             {member.data.distinction}
                         </p>
                     </div>
-                </div>
-            ))
-        }
+                ))
+            }
+        </div>
+
+        {/* Portrait gallery: the avatars that used to sit next to each person */}
+        <div class="w-full max-w-5xl mt-24">
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-x-6 gap-y-8">
+                {
+                    galleryAvatars.map((person) => (
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden">
+                                <img
+                                    src={`${BASE}${person.avatar}`.replace(/\/+/g, "/")}
+                                    alt={person.name}
+                                    class="w-full h-full object-cover"
+                                />
+                            </div>
+                            <span class="text-[9px] md:text-[10px] text-white/70 text-center leading-tight font-press-start-2p">
+                                {person.name}
+                            </span>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+
+    {/* Foreground layer: the grassy "dilla" ground pinned to the bottom, capped at
+        1920px wide and centered so it doesn't stretch edge-to-edge on ultra-wide monitors */}
+    <div class="fixed inset-0 mx-auto max-w-[1920px] z-20 pointer-events-none">
+        <img
+            src={dillaFg.src}
+            alt=""
+            class="w-full h-full object-cover object-bottom [image-rendering:pixelated]"
+        />
     </div>
 </div>
+
+<script>
+  /**
+   * Section Title Fade-In:
+   * Fades the "OUR ALUMNI" heading up into view the first time it enters the viewport.
+   */
+  const alumniTitle = document.getElementById("alumni-title");
+  if (alumniTitle) {
+    const alumniTitleObserver = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove("opacity-0", "translate-y-6");
+            entry.target.classList.add("opacity-100", "translate-y-0");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 },
+    );
+    alumniTitleObserver.observe(alumniTitle);
+  }
+</script>

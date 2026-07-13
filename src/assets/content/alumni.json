@@ -2,218 +2,277 @@
   {
     "id": "john-her",
     "name": "John Her",
-    "occupation": "PhD Student - Bioengineering",
-    "distinction": "B.S. Chemical Engineering, University of California, Berkeley",
-    "avatar": "/avatars/John.png"
+    "occupation": "PhD, BioE",
+    "distinction": "Postdoc, Gollihar Lab, Houston Methodist"
   },
   {
-    "id": "ronan-oconnell",
+    "id": "ronan-o-connell",
     "name": "Ronan O'Connell",
-    "occupation": "PhD Student - Bioengineering",
-    "distinction": "M.Eng. Biomedical Engineering, The University of Glasgow, Scotland",
-    "avatar": "/avatars/Ronan.png"
-  },
-  {
-    "id": "lucas-brown",
-    "name": "Lucas Brown",
-    "occupation": "PhD Student - Systems, Synthetic, and Physical Biology",
-    "distinction": "B.S. Biochemistry and B.S. Biotechnology, Tufts University",
-    "avatar": "/avatars/Lucas.png"
-  },
-  {
-    "id": "xiaoyu-yang",
-    "name": "Xiaoyu Yang",
-    "occupation": "PhD Student - Systems, Synthetic, and Physical Biology",
-    "distinction": "B.S. Life Science, Peking University",
-    "avatar": "/avatars/Xiaoyu.png"
+    "occupation": "PhD, BioE",
+    "distinction": "Postdoc, Boeynaems Lab, Baylor College of Medicine"
   },
   {
     "id": "trenton-piepergerdes",
     "name": "Trenton Piepergerdes",
-    "occupation": "PhD Student - Bioengineering",
-    "distinction": "B.S. Biomedical Engineering, Vanderbilt University; M.S. Bioengineering, Rice University",
-    "avatar": "/avatars/Trenton.png"
+    "occupation": "PhD, BioE",
+    "distinction": "Senior Associate, Flagship Pioneering (Boston, MA)"
   },
   {
-    "id": "andrew-sun",
-    "name": "Andrew Sun",
-    "occupation": "Undergraduate - Bioengineering",
-    "distinction": "In Progress - Bioengineering, Rice University",
-    "avatar": "/avatars/Andrew.png"
+    "id": "shujian-scott-lin",
+    "name": "Shujian (Scott) Lin",
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "MD/PhD program, University of Collorado"
   },
   {
-    "id": "jason-nguyen",
-    "name": "Jason Nguyen",
-    "occupation": "Undergraduate - Bioengineering",
-    "distinction": "In Progress - Bioengineering, Rice University",
-    "avatar": "/avatars/Jason.png"
+    "id": "samantha-mcclendon",
+    "name": "Samantha McClendon",
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "PhD program, Electrical Engineering, Arizona State University"
   },
   {
-    "id": "kaiyi-jiang",
-    "name": "Kaiyi Jiang",
-    "occupation": "Undergraduate - Bioengineering",
-    "distinction": "",
-    "avatar": "/avatars/Kaiyi.png"
-  },
-  {
-    "id": "kian-samra",
-    "name": "Kian Samra",
-    "occupation": "Undergraduate - Bioengineering",
-    "distinction": "In Progress - Bioengineering, Rice University",
-    "avatar": "/avatars/Kian.png"
-  },
-  {
-    "id": "melissa-cantu",
-    "name": "Melissa Cantú",
-    "occupation": "Undergraduate - Bioengineering",
-    "distinction": "In Progress - Bioengineering, Rice University",
-    "avatar": "/avatars/Melissa.png"
-  },
-  {
-    "id": "shonik-ganjoo",
-    "name": "Shonik Ganjoo",
-    "occupation": "Undergraduate - Bioengineering",
-    "distinction": "In Progress - Bioengineering, Rice University",
-    "avatar": "/avatars/Shonik.png"
-  },
-  {
-    "id": "vicky-liu",
-    "name": "Vicky Liu",
-    "occupation": "Undergraduate - Bioengineering",
-    "distinction": "In Progress - Bioengineering, Rice University",
-    "avatar": "/avatars/Vicky.png"
-  },
-  {
-    "id": "brennan-keogh",
-    "name": "Brennan Keogh",
-    "occupation": "Undergraduate - Bioengineering",
-    "distinction": "In Progress - Bioengineering, Rice University",
-    "avatar": "/avatars/Placeholder.png"
-  },
-  {
-    "id": "priyanka-sunramanian",
-    "name": "Priyanka Sunramanian",
-    "occupation": "Undergraduate - Bioengineering",
-    "distinction": "In Progress - Bioengineering, Rice University",
-    "avatar": "/avatars/Priyanka.png"
-  },
-  {
-    "id": "lauryn-piggatt",
-    "name": "Lauryn Piggatt",
-    "occupation": "Undergraduate - Bioengineering",
-    "distinction": "In Progress - Bioengineering, Rice University",
-    "avatar": "/avatars/Lauryn.png"
-  },
-  {
-    "id": "alice-zhou",
-    "name": "Alice Zhou",
-    "occupation": "Undergraduate - Bioengineering",
-    "distinction": "In Progress - Bioengineering, Rice University",
-    "avatar": "/avatars/Alice.png"
-  },
-  {
-    "id": "kshitij-rai",
-    "name": "Kshitij Rai",
-    "occupation": "Phd Student - Systems, Synthetic and Physical Biology",
-    "distinction": "B.Eng/M.Eng Chemical Engineering & Biotechnology, Indian Institue of Technology (IIT) Delhi",
-    "avatar": "/avatars/Kshitij.png"
-  },
-  {
-    "id": "tawan-kiratiwongwan",
-    "name": "Tawan (Pop) Kiratiwongwan",
-    "occupation": "Phd Student - Bioengineering",
-    "distinction": "B.BmE Bioengineering, University of Minnesota",
-    "avatar": "/avatars/Pop.png"
-  },
-  {
-    "id": "olivia-flynn",
-    "name": "Olivia Flynn",
-    "occupation": "Phd Student - Systems, Synthetic and Physical Biology",
-    "distinction": "B.S. Chemincal Engineering, University of Notre Dame",
-    "avatar": "/avatars/Olivia.png"
-  },
-  {
-    "id": "aj-walters",
-    "name": "Aj Walters",
-    "occupation": "Phd Student - Bioengineering",
-    "distinction": "B.S. Biological/Biosystems Engineering, Utah State University",
-    "avatar": "/avatars/Aj.png"
+    "id": "neha-gheewala",
+    "name": "Neha Gheewala",
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "Research Technician, Baylor College of Medicine"
   },
   {
     "id": "abram-qui",
     "name": "Abram Qui",
-    "occupation": "Undergraduate - Bioengineering",
-    "distinction": "In Progress - B.S.B BiologicalEngineering, Rice University",
-    "avatar": "/avatars/Abram.png"
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "Medical School, UTH San Antonio"
   },
   {
-    "id": "olivia-frasher",
-    "name": "Olivia Frasher",
-    "occupation": "Phd Student - Systems, Synthetic and Physical Biology",
-    "distinction": "B.S. Chemincal Engineering, University of Notre Dame",
-    "avatar": "/avatars/Aj.png"
+    "id": "xiaoyu-yang",
+    "name": "Xiaoyu Yang",
+    "occupation": "PhD, SSPB",
+    "distinction": "Postdoc, Roybal lab, UCSF"
   },
   {
-    "id": "shreya-jindal",
-    "name": "Shreya Jindal",
-    "occupation": "Undergraduate - Bioengineering",
-    "distinction": "",
-    "avatar": "/avatars/Shreya.png"
+    "id": "lucas-brown",
+    "name": "Lucas Brown",
+    "occupation": "PhD, SSPB",
+    "distinction": "Associate Scientist, Jackson Foundation (Rockland, MD)"
   },
   {
-    "id": "yuqing-hua",
-    "name": "Yuqing (Lucia) Hua",
-    "occupation": "Masters Student - Bioengineering",
-    "distinction": "",
-    "avatar": "/avatars/Lucia.png"
-  },
-  {
-    "id": "eddie-ramos",
-    "name": "Eddie Ramos",
-    "occupation": "Undergraduate - Bioengineering",
-    "distinction": "",
-    "avatar": "/avatars/Eddie.png"
+    "id": "kaiyi-jiang",
+    "name": "Kaiyi Jiang",
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "Assistant Professor, Omenn-Darling Bioengineering Institute, Princeton Unviersity"
   },
   {
     "id": "jack-wilson",
     "name": "Jack Wilson",
-    "occupation": "Undergraduate - Bioengineering",
-    "distinction": "",
-    "avatar": "/avatars/Jack.png"
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "Medical School, New York Medical College"
   },
   {
-    "id": "scott-lin",
-    "name": "Scott Lin",
-    "occupation": "Undergraduate - Bioengineering",
-    "distinction": "",
-    "avatar": "/avatars/Scott.png"
+    "id": "haidar-ahmed",
+    "name": "Haidar Ahmed",
+    "occupation": "Undergrad, BioE, UTEP",
+    "distinction": "Lab Technician, University of Pennsylvania"
+  },
+  {
+    "id": "eduardo-ramos",
+    "name": "Eduardo Ramos",
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "Medical School, UT Southwestern"
+  },
+  {
+    "id": "kian-samra",
+    "name": "Kian Samra",
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "Product Development Engineer, Prana Surgical"
   },
   {
     "id": "noah-keogh",
     "name": "Noah Keogh",
-    "occupation": "Undergraduate - Bioengineering",
-    "distinction": "",
-    "avatar": "/avatars/Noah.png"
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "Data Scientist, Paycom (Oklahoma City, OK)"
   },
   {
     "id": "thomas-zhang",
     "name": "Thomas Zhang",
-    "occupation": "Undergraduate - Bioengineering",
-    "distinction": "",
-    "avatar": "/avatars/Thomas.png"
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "Medical School, Baylor College of Medicine"
   },
   {
     "id": "akash-kumashi",
     "name": "Akash Kumashi",
-    "occupation": "Undergraduate - Bioengineering",
-    "distinction": "",
-    "avatar": "/avatars/Akash.png"
+    "occupation": "Undergrad, ChemE, U Penn.",
+    "distinction": "Applications Engineer, AirJoule, (Newark, DE)"
   },
   {
     "id": "kajal-patil",
     "name": "Kajal Patil",
-    "occupation": "Masters Student - Bioengineering",
-    "distinction": "",
-    "avatar": "/avatars/Kajal.png"
+    "occupation": "Masters, BioE",
+    "distinction": "Senior Associate Scientist, Bristol Myers Squib (Boston, MA)"
+  },
+  {
+    "id": "olivia-flynn",
+    "name": "Olivia Flynn",
+    "occupation": "PhD, SSPB",
+    "distinction": "Postdoc, Roybal lab, UCSF"
+  },
+  {
+    "id": "tawan-pop-kiratiwongwan",
+    "name": "Tawan \"Pop\" Kiratiwongwan",
+    "occupation": "PhD, BioE",
+    "distinction": "Research Scientist, Allen Institute (Seattle, WA)"
+  },
+  {
+    "id": "alena-streletskaia",
+    "name": "Alena Streletskaia",
+    "occupation": "PhD Student - BioSciences",
+    "distinction": "Postdoc, Di Stefano Lab, Baylor College of Medicine"
+  },
+  {
+    "id": "kshitij-rai",
+    "name": "Kshitij Rai",
+    "occupation": "PhD, SSPB",
+    "distinction": "Postdoc, Shendure Lab, University of Washington"
+  },
+  {
+    "id": "aj-walters",
+    "name": "AJ Walters",
+    "occupation": "PhD, BioE",
+    "distinction": "Postdoc, Olson Lab, UT Health"
+  },
+  {
+    "id": "shonik-ganjoo",
+    "name": "Shonik Ganjoo",
+    "occupation": "Undergrad, Biochemistry, Rice",
+    "distinction": "Medical School, Columbia University"
+  },
+  {
+    "id": "yuqing-lucia-hua",
+    "name": "Yuqing \"Lucia\" Hua",
+    "occupation": "Masters, BioE",
+    "distinction": "Research Associate II, Flagship Pioneering (Boston, MA)"
+  },
+  {
+    "id": "shreya-jindal",
+    "name": "Shreya Jindal",
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "Masters Program, Bioengineering, Johns Hopkins"
+  },
+  {
+    "id": "alice-zhou",
+    "name": "Alice Zhou",
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "Engineer, Texas Heart Institute (Houston, TX)"
+  },
+  {
+    "id": "maria-jose-gonzalez",
+    "name": "Maria-Jose Gonzalez",
+    "occupation": "Masters, BioE, National Unviersity of Costa Rica",
+    "distinction": "PhD program, Bioengineering, MIT"
+  },
+  {
+    "id": "lauryn-piggatt",
+    "name": "Lauryn Piggatt",
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "PhD program, Biomedical Engineering, Georgia Tech/Emory"
+  },
+  {
+    "id": "melissa-cantu",
+    "name": "Melissa Cantú",
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "PhD program, Bioengineering, Rice University"
+  },
+  {
+    "id": "jason-nguyen",
+    "name": "Jason Nguyen",
+    "occupation": "Undergrad, Biochemisrty, Rice",
+    "distinction": "Medical School, Baylor College of Medicine"
+  },
+  {
+    "id": "tommy-nguyen",
+    "name": "Tommy Nguyen",
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "Master program, Computer Science, Brown University"
+  },
+  {
+    "id": "priyanka-subramanian",
+    "name": "Priyanka Subramanian",
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "Medical School, UT Southwestern"
+  },
+  {
+    "id": "vicky-jing-liu",
+    "name": "Vicky (Jing) Liu",
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "PhD program, Bioengineering, MIT"
+  },
+  {
+    "id": "vikram-chavare",
+    "name": "Vikram Chavare",
+    "occupation": "Masters, BioE",
+    "distinction": "Research Associate, CTMC/MD Anderson"
+  },
+  {
+    "id": "ryan-szeto",
+    "name": "Ryan Szeto",
+    "occupation": "Masters, BioE",
+    "distinction": "Intern, Ideas Lab, MD Anderson"
+  },
+  {
+    "id": "leo-qiaochu-liu",
+    "name": "Leo (Qiaochu) Liu",
+    "occupation": "Masters, BioE",
+    "distinction": "PhD program, Biomedical Engineering, Northeastern University"
+  },
+  {
+    "id": "marvin-yewei-sun",
+    "name": "Marvin (Yewei) Sun",
+    "occupation": "Undergrad, University College London, Biochemistry",
+    "distinction": "PhD program, Stony Brook University"
+  },
+  {
+    "id": "brennan-keogh",
+    "name": "Brennan Keogh",
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "PhD program, Duke Univeristy"
+  },
+  {
+    "id": "matteo-pozo-araujo",
+    "name": "Matteo Pozo Araujo",
+    "occupation": "Undergrad, Biochemistry, Rice",
+    "distinction": "Technician, Genetic Design & Engineering Center, Rice"
+  },
+  {
+    "id": "taylor-main",
+    "name": "Taylor Main",
+    "occupation": "Masters, BioE",
+    "distinction": ""
+  },
+  {
+    "id": "stephanie-agu",
+    "name": "Stephanie Agu",
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "Medical School, UT Southwestern"
+  },
+  {
+    "id": "mustafa-latif",
+    "name": "Mustafa Latif",
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "Medical Assistant, DFW Athsma & Allergy Center"
+  },
+  {
+    "id": "andrew-sun",
+    "name": "Andrew Sun",
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "Boston Consulting Group"
+  },
+  {
+    "id": "john-paul-gorley",
+    "name": "John-Paul Gorley",
+    "occupation": "Undergrad, BioE, TAMU",
+    "distinction": "PhD program, Biomedical Engineering, UT Southwestern"
+  },
+  {
+    "id": "samuel-zhang",
+    "name": "Samuel Zhang",
+    "occupation": "Undergrad, BioE, Rice",
+    "distinction": "Research Intern, Houston Methodist"
   }
 ]

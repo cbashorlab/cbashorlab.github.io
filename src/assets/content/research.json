@@ -2,6 +2,10 @@
   "mainTitle": "OUR RESEARCH",
   "sections": [
     {
+      "heading": "The Bashor Lab",
+      "content": "We use synthetic biology approaches to design, build, and test artificial regulatory programs in human cells. This not only provides insight into the design logic of natural regulation, but also allows us to predictively alter cellular phenotype to create powerful cell-based biotechnologies."
+    },
+    {
       "heading": "Synthetic Regulatory Circuits",
       "content": "Our work explores the fundamentals of gene expression control in mammalian cells. By leveraging multi-scale regulatory control, we can engineer stable, precise control over complex multi-gene expression programs that can both report on and reprogram cellular function."
     },
