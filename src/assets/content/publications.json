@@ -2,7 +2,7 @@
   {
     "id": "1",
     "title": "Ultra-high-throughput mapping of genetic design space",
-    "authors": "Kshitij Rai, Ronan W. O’Connell, Trenton C. Piepergerdes, Yiduo Wang, Lucas B. C. Brown, Kian D. Samra, Jack A. Wilson, Shujian Lin, Thomas H. Zhang, Eduardo M. Ramos, Andrew Sun, Bryce Kille, Kristen D. Curry, Jason W. Rocks, Todd J. Treangen, Pankaj Mehta, Caleb J. Bashor",
+    "authors": "Kshitij Rai, Ronan W. O'Connell, Trenton C. Piepergerdes, Yiduo Wang, Lucas B. C. Brown, Kian D. Samra, Jack A. Wilson, Shujian Lin, Thomas H. Zhang, Eduardo M. Ramos, Andrew Sun, Bryce Kille, Kristen D. Curry, Jason W. Rocks, Todd J. Treangen, Pankaj Mehta, Caleb J. Bashor",
     "journal": "Nature",
     "year": "2026",
     "page": "1-10",
@@ -26,7 +26,7 @@
   {
     "id": "3",
     "title": "Using machine learning to enhance and accelerate synthetic biology",
-    "authors": "Kshitij Rai, Yiduo Wang, Ronan W. O’Connell, Ankit B. Patel, Caleb J. Bashor",
+    "authors": "Kshitij Rai, Yiduo Wang, Ronan W. O'Connell, Ankit B. Patel, Caleb J. Bashor",
     "journal": "Current Opinion in Biomedical Engineering",
     "year": "2024",
     "page": "31: 100553",
@@ -81,7 +81,7 @@
   {
     "id": "9",
     "title": "The Least Mating Pathway: Synthetically Refactoring a Familiar Signaling System for New Applications",
-    "authors": "Ronan W. O’Connell, Caleb J. Bashor",
+    "authors": "Ronan W. O'Connell, Caleb J. Bashor",
     "journal": "Cell 177 no. 3",
     "year": "2019",
     "page": "521-523",
@@ -145,7 +145,7 @@
   },
   {
     "id": "14",
-    "title": "‘Deadman’ and ‘Passcode’ microbial kill switches for bacterial containment",
+    "title": "'Deadman' and 'Passcode' microbial kill switches for bacterial containment",
     "authors": "Clement T.Y. Chan, Jeong Wook Lee, D. Ewen Cameron, Caleb J. Bashor, James J. Collins",
     "journal": "Nature Chemical Biology 12 no. 2",
     "year": "2016",
