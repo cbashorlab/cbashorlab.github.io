@@ -43,9 +43,9 @@ For maintenance, you only need to focus on two core directories:
 
 ```json
 {
-  "id": "sarah-jenkins",
-  "name": "Sarah Jenkins",
-  "occupation": "PhD Student - Systems, Synthetic, and Physical Biology",
+  "id": "john-her",
+  "name": "John Her",
+  "occupation": "PhD Student - Bioengineering",
   "distinction": "B.S. Bioengineering, Rice University",
   "avatar": "/avatars/Sarah.png"
 }
@@ -72,11 +72,11 @@ For maintenance, you only need to focus on two core directories:
 {
   "id": "11",
   "title": "Title of the research paper goes here",
-  "authors": "Sarah Jenkins, Zheng Diao, Caleb J. Bashor",
+  "authors": "John Her, Zheng Diao, Caleb J. Bashor",
   "journal": "Nature",
   "year": "2026",
   "page": "15-22",
-  "url": "/pdfs/2026_Jenkins_Nature.pdf"
+  "url": "/pdfs/2026_Her_Nature.pdf"
 }
 
 ```
@@ -86,8 +86,8 @@ For maintenance, you only need to focus on two core directories:
 Add a `"videoUrl"` property targeting YouTube, JoVE, or any other hosting site:
 
 ```json
-  "url": "/pdfs/Heins_Jove_2019.pdf",
-  "videoUrl": "https://www.jove.com/video/59652/..."
+  "url": "/pdfs/Her_Science_2019.pdf",
+  "videoUrl": "https://www.youtube.com/..."
 
 ```
 
@@ -98,8 +98,8 @@ Add a `"features"` array to include sub-links highlighting secondary coverage:
 ```json
   "features": [
     {
-      "text": "Perspective by Jane Doe in Science 363: 531",
-      "url": "/pdfs/Science_Perspective.pdf"
+      "text": "Perspective by Mike May in Nature",
+      "url": "/pdfs/Nature_Perspective.pdf"
     },
     {
       "text": "News & Views Feature in Nature Biotechnology",
@@ -132,7 +132,7 @@ Modify `contact.json` if office phone numbers, emails, or room locations change.
   "title": "CONTACT US",
   "email": "caleb.bashor@rice.edu",
   "phone": "(713) 348-8231",
-  "address": "BRC 660C, 6500 Main St., Rice University, Houston, TX 77030"
+  "address": "BRC 815, 6500 Main St., Rice University, Houston, TX 77030"
 }
 
 ```
