@@ -47,9 +47,20 @@ import pdf_icon from "../assets/publications/PDF.png";
 import video_icon from "../assets/publications/VIDEO.png";
 ---
 
+{/* No background colour on the wrapper on purpose: the body is already black, and
+    leaving this section transparent lets the Research backdrop stay visible through
+    the lead-in padding so the two backdrops can cross-fade (an opaque bg-black would
+    wipe over it instead). Same reason the Members section is transparent.
+
+    The pt lead-in is what makes the title rise out from behind the skyline: at the
+    hand-off this section's top sits at the top of the viewport, so the padding is
+    how far down the screen the title starts. In the fixed foreground PNG the
+    buildings begin ~66% down (and object-cover/object-bottom holds that ratio across
+    aspect ratios), so dropping this below ~70vh starts the title in open sky instead
+    and loses the reveal. */}
 <div
   id="pubs-section"
-  class="relative w-full min-h-[300svh] selection:bg-white selection:text-black bg-black pt-[100vh] px-8 md:px-20 min-h-screen flex flex-col items-center overflow-hidden"
+  class="relative w-full min-h-[300svh] selection:bg-white selection:text-black pt-[80vh] px-8 md:px-20 min-h-screen flex flex-col items-center overflow-hidden"
 >
   
   <div
@@ -213,11 +224,13 @@ import video_icon from "../assets/publications/VIDEO.png";
           }
         });
       },
-      // Only reveal the fixed publication backdrop once the Research section above
-      // has completely scrolled out. The negative bottom rootMargin collapses the
-      // observer root to a line at the very top of the viewport, so this fires the
-      // instant this section's top edge (its void) reaches the top — i.e. when
-      // Research is fully gone — so the cross-fade never overlaps the blue GIF.
+      // Reveal the fixed publication backdrop as the Research section above scrolls
+      // out. The negative bottom rootMargin collapses the observer root to a line at
+      // the very top of the viewport, so this fires the instant this section's top
+      // edge (its void) reaches the top. That is the same instant Research's own
+      // fixed backdrop starts fading out, so the blue GIF and the city dissolve into
+      // each other over the shared 700ms — the same cross-fade used further down the
+      // page for Publications → Members → Contact.
       { threshold: 0, rootMargin: "0px 0px -100% 0px" },
     );
 

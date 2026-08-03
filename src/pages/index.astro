@@ -12,11 +12,29 @@ import backgroundGif from "../assets/hero/background-blue.gif";
 ---
 
 <Layout title="Home | Bashor Lab">
-  <!-- Shared Background Wrapper for Hero, About, and Research -->
-  <div
-    class="relative w-full bg-cover bg-top bg-no-repeat bg-fixed"
-    style={`background-image: url(${backgroundGif.src});`}
-  >
+  {/* Shared backdrop for Hero, About and Research. It is a position:fixed,
+      opacity-animated <img> layer rather than a CSS `bg-fixed` background — the same
+      technique the Publications, Members and Contact backdrops use — so it can
+      dissolve into the Publications backdrop instead of being hard-clipped at the
+      wrapper's bottom edge. One layer spanning all three sections means there is no
+      internal hand-off between them to go wrong: the only transition is the one at
+      the very bottom. It starts at opacity-100 so it is painted on first load,
+      before the observer below takes over. (As a bonus, `bg-fixed` is unreliable on
+      iOS Safari, which mis-scales fixed-attachment backgrounds; a fixed layer isn't.)
+
+      The wrapper must stay z-index-free: giving it a z-index would trap the fixed
+      layer in a stacking context and paint it over the sections that follow. */}
+  <div id="top-sections" class="relative w-full">
+    <div
+      class="top-bg fixed inset-0 z-0 opacity-100 transition-opacity duration-700 pointer-events-none"
+    >
+      <img
+        src={backgroundGif.src}
+        alt=""
+        class="w-full h-full object-cover object-top"
+      />
+    </div>
+
     <section id="home" class="relative z-10">
       <Hero />
     </section>
@@ -30,7 +48,7 @@ import backgroundGif from "../assets/hero/background-blue.gif";
     </section>
   </div>
 
-  <!-- Other sections continue normally outside the GIF wrapper -->
+  <!-- Other sections continue normally -->
   <section id="publications">
     <Publications />
   </section>
@@ -43,3 +61,31 @@ import backgroundGif from "../assets/hero/background-blue.gif";
     <Contact />
   </section>
 </Layout>
+
+<script>
+  /**
+   * Background Dissolve Observer:
+   * The blue GIF backdrop shared by Hero/About/Research is a position:fixed layer
+   * (see markup) rather than a CSS background, so it can cross-fade. The default
+   * (full-viewport) root means it fades out the instant the last of those three
+   * sections has scrolled off the top of the viewport — the exact moment the
+   * Publications backdrop fades in — so the two dissolve into each other over the
+   * shared 700ms, matching the Publications → Members → Contact hand-offs.
+   */
+  const topSections = document.getElementById("top-sections");
+  const topBackgrounds = document.querySelectorAll(".top-bg");
+  if (topSections && topBackgrounds.length > 0) {
+    const bgObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          topBackgrounds.forEach((bg) => {
+            bg.classList.toggle("opacity-0", !entry.isIntersecting);
+            bg.classList.toggle("opacity-100", entry.isIntersecting);
+          });
+        });
+      },
+      { threshold: 0 },
+    );
+    bgObserver.observe(topSections);
+  }
+</script>

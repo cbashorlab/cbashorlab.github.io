@@ -26,8 +26,12 @@ const sections = researchEntry?.data.sections ?? [];
 ---
 
 <div
-  class="relative w-full flex flex-col items-center pt-20 md:pt-32 pb-0 px-6 md:px-10 box-border overflow-x-hidden"
+  class="relative w-full flex flex-col items-center pt-20 md:pt-32 pb-[10vh] px-6 md:px-10 box-border overflow-x-hidden"
 >
+  {/* The blue GIF backdrop behind this section is the shared fixed layer declared in
+      index.astro, which spans Hero/About/Research and dissolves into the Publications
+      backdrop below. The trailing pb-[10vh] is the breathing room before that
+      hand-off, where a fade-to-black gradient used to sit. */}
   <div class="relative z-20 w-full max-w-5xl mx-auto">
     
     {/* The title shares the same `.fade-target` scroll-driven fade in/out as the
@@ -73,14 +77,6 @@ const sections = researchEntry?.data.sections ?? [];
     </div>
   </div>
 
-  {/* Gradient void: fades the blue-GIF background down to solid black so Research
-      transitions smoothly into the black Publications section below. Full-bleed
-      (w-screen) so the black reaches the horizontal edges past the section padding. */}
-  <div
-    class="w-screen h-[40vh] mt-24 md:mt-32 pointer-events-none"
-    style="background: linear-gradient(to bottom, transparent, #000000);"
-  >
-  </div>
 </div>
 
 <style>
