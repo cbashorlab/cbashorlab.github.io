@@ -19,7 +19,7 @@ const publications = defineCollection({
   // Loads all entries from a single centralized JSON file
   loader: file("src/assets/content/publications.json"),
   schema: z.object({
-    id: z.string(),
+    id: z.string(),      // Descriptive slug, e.g. "2026_nature_rai" (year_journal_firstAuthor)
     title: z.string(),
     authors: z.string(), // Comma-separated list or string of author names
     journal: z.string(), // Journal or conference venue name

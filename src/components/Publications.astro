@@ -8,6 +8,7 @@
  */
 
 import { getCollection } from "astro:content";
+import publicationsRaw from "../assets/content/publications.json";
 
 /**
  * Purpose: Fetch raw data items from the local Markdown/MDX content collection.
@@ -16,12 +17,23 @@ import { getCollection } from "astro:content";
 const rawPubs = await getCollection("publications");
 
 /**
- * Data Aggregation & Sorting:
- * Purpose: Enforce a clean, ascending chronological or numerical display of items.
- * Functionality: Sorts entries using their ID. Casting `a.id` and `b.id` to a `Number` 
- * prevents string-based alphabetical sorting anomalies (e.g., '10' sorting before '2').
+ * Display order follows the entry order in publications.json directly (top of the
+ * file = top of the list). Astro's content layer data store always persists entries
+ * sorted alphabetically by id, so getCollection() alone can't recover file order —
+ * the raw JSON is imported separately here just to read the original array position.
  */
-const pubs = rawPubs.sort((a, b) => Number(a.id) - Number(b.id));
+const orderById = new Map(publicationsRaw.map((pub, index) => [pub.id, index]));
+const pubs = rawPubs.sort((a, b) => (orderById.get(a.id) ?? 0) - (orderById.get(b.id) ?? 0));
+
+/**
+ * pub.data.url is a mix of site-relative asset paths ("/pdfs/x.pdf") and absolute
+ * external links (publisher/DOI pages). Only relative paths need the BASE_URL prefix
+ * for GitHub Pages sub-path serving — prefixing an absolute URL and slash-collapsing
+ * it turns "https://doi.org/..." into a broken same-site path "/https:/doi.org/...".
+ */
+const isAbsoluteUrl = (url: string) => /^[a-z][a-z0-9+.-]*:\/\//i.test(url);
+const resolvePubUrl = (url: string) =>
+  isAbsoluteUrl(url) ? url : `${import.meta.env.BASE_URL}${url}`.replace(/\/+/g, "/");
 
 /**
  * Asset Imports:
@@ -86,14 +98,15 @@ import video_icon from "../assets/publications/VIDEO.png";
 
                 <div class="flex flex-col gap-3 flex-shrink-0 pt-1">
                   
-                  {/* Document Path Anchor Link Injection 
+                  {/* Document Path Anchor Link Injection
                     Purpose: Directs users to the official hosted publication PDF.
-                    Functionality: Checks for a valid URL, prepends Astro's subpath context 
-                    (`import.meta.env.BASE_URL`), and safely opens it in a blank tab.
+                    Functionality: Checks for a valid URL, prepends Astro's subpath context
+                    (`import.meta.env.BASE_URL`) for relative paths only, and safely opens
+                    it in a blank tab.
                   */}
                   {pub.data.url && (
                     <a
-                      href={`${import.meta.env.BASE_URL}${pub.data.url}`.replace(/\/+/g, '/')}
+                      href={resolvePubUrl(pub.data.url)}
                       target="_blank"
                       rel="noopener noreferrer"
                       class="block transform transition-transform hover:scale-110 active:scale-95 cursor-pointer"
