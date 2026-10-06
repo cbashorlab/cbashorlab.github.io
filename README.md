@@ -1,131 +1,178 @@
 
 # The Bashor Lab Website — Maintenance Guide
 
-The source code for the  **The Bashor Lab** website. This site is built using **Astro**, meaning almost all text and listing data are decoupled from the code and managed via straightforward JSON files.
+Source code for the **Bashor Lab** website, live at **https://bashorlab.rice.edu**.
 
-You do **not** need advanced programming knowledge to keep this site updated! Follow this guide to handle day-to-day updates smoothly.
+The site is built with [Astro](https://astro.build). Almost all text and listings (people, papers, contact info) live in plain JSON files, separate from the code. Most updates mean editing a JSON file and pushing to `main`. You do **not** need programming experience for day-to-day updates.
 
 ---
 
 ## Repository Quick Map
 
-For maintenance, you only need to focus on two core directories:
+For routine maintenance you only need two places:
 
-1. `public/` — Where you upload files like images (avatars) and PDF research papers.
-2. `src/assets/content/` — Where you update the text and structural data for the site.
+1. `public/`: files you upload (photos, paper PDFs, images).
+2. `src/assets/content/`: the text and data shown on the site.
 
 ```text
 .
 ├── .github/workflows/
-│   └── deploy-release.yml   # Automates site deployment on Git push
-├── public/                  # FILE STORAGE
-│   ├── avatars/             # Put member & alumni photos here
-│   └── pdfs/                # Put research paper PDFs here
-└── src/assets/content/      # TEXT & DATA (Edit these to update the site)
-    ├── about.json           # Lab description text
-    ├── alumni.json          # List of graduated lab members
-    ├── contact.json         # Email, phone, and office address
-    ├── members.json         # Current lab members list
-    ├── publications.json    # Published papers & external links
-    └── research.json        # Main research themes and blurbs
-
+│   └── deploy-release.yml     # Builds and deploys the site on every push to main
+├── public/                    # FILE STORAGE (served as-is)
+│   ├── avatars/               # Member & alumni photos
+│   ├── pdfs/                  # Paper PDFs
+│   └── images/                # Other linkable images (e.g. journal covers)
+└── src/
+    ├── assets/content/        # TEXT & DATA (edit these to update the site)
+    │   ├── about.json         # "What we do" blurb
+    │   ├── research.json      # Research section heading + themes
+    │   ├── publications.json  # Publication list
+    │   ├── members.json       # Current lab members ("Our Group")
+    │   ├── alumni.json        # Alumni list (text only, no photos)
+    │   ├── alumni_avatars.json# Photo gallery at the bottom of the Alumni page
+    │   └── contact.json       # Email, phone, office address
+    ├── content.config.ts      # Rules each JSON file must follow (see "Validation")
+    └── components/            # Page sections (code); see "Things not in JSON"
 ```
 
 ---
 
-## Common Maintenance Workflows
+## Ground Rules (read once)
 
-### 1. Adding or Updating a Current Team Member
+- **Order on the page = order in the file.** Members, alumni, publications and research themes appear in the order they are listed in their JSON file. To reorder something, move its block.
+- **Valid JSON only.** Use double quotes `"..."`, put a comma between blocks, and **no** comma after the last block in a list. A JSON mistake fails the build, and the live site keeps its previous version until you fix it.
+- **Every `id` must be unique** within its file. Use lowercase words joined by hyphens, e.g. `"jane-doe"`.
+- **File paths start with `/`** and point inside `public/`. For example, `public/avatars/Jane.png` is written `"/avatars/Jane.png"`. Paths are **case-sensitive** (`Jane.png` ≠ `jane.png`), and spaces in file names are best avoided.
+- **External links must include `https://`.** Without it the link is treated as a page on our own site and breaks.
+- **Line breaks:** in a member's `occupation` or `distinction`, type `\n` to start a new line, e.g. `"B.S. Chemistry, UT Austin\nM.S. Bioengineering, Rice University"`.
 
-1. **Upload their Photo:** Save their avatar image inside `public/avatars/` (e.g., `Sarah.png`).
-2. **Update the Data:** Open `src/assets/content/members.json`.
-3. Add a new block at the bottom using this template (ensure you add a comma `,` after the previous block):
+---
+
+## Common Maintenance Tasks
+
+### 1. Adding or Updating a Current Member
+
+1. **Upload a photo** to `public/avatars/` (e.g. `Jane.png`). A square image works best, because it is cropped to a circle. If there's no photo yet, use the existing `/avatars/Placeholder.png`.
+2. **Open** `src/assets/content/members.json` and add a block where you want them to appear:
 
 ```json
 {
-  "id": "john-her",
-  "name": "John Her",
+  "id": "jane-doe",
+  "name": "Jane Doe",
   "occupation": "PhD Student - Bioengineering",
   "distinction": "B.S. Bioengineering, Rice University",
-  "avatar": "/avatars/Sarah.png"
+  "avatar": "/avatars/Jane.png"
 }
-
 ```
 
->  **Note:** The `avatar` path *must* start with `/avatars/` and match your image filename exactly (case-sensitive).
+All five fields are required. `occupation` is shown to the left of the photo and `distinction` (degrees or background) to the right.
 
 ### 2. Moving a Member to Alumni
 
-1. Open `src/assets/content/members.json`, find their block, and **cut** it out.
-2. Open `src/assets/content/alumni.json` and **paste** their block into the list.
-3. Update their `"occupation"` or `"distinction"` if their title has changed post-graduation.
+The alumni page is a text table (**Name · Role · Now**) plus a separate photo gallery, so the member block needs a few changes:
 
-### 3. Adding a New Publication
-
-1. **Upload the PDF:** Put the paper's PDF file into `public/pdfs/` (e.g., `2026_Jenkins_Nature.pdf`).
-2. **Update the List:** Open `src/assets/content/publications.json`.
-3. Add a new entry. The site supports three variations depending on the paper's media elements:
-
-#### Standard Paper Entry:
+1. **Cut** the person's block from `members.json` and **paste** it into `alumni.json` at the position you want.
+2. **Delete the `"avatar"` line** (alumni entries have no photo field). Remember to remove the comma left dangling on the line above it.
+3. Rewrite the two text fields:
+   - `"occupation"`: the role they held **in the lab**, kept short, e.g. `"PhD, BioE"` or `"Undergrad, BioE, Rice"`.
+   - `"distinction"`: **where they are now**, e.g. `"Postdoc, Boeynaems Lab, Baylor College of Medicine"`.
+4. **Optional, add them to the photo gallery:** append to `alumni_avatars.json` (keep their photo in `public/avatars/`):
 
 ```json
 {
-  "id": "11",
-  "title": "Title of the research paper goes here",
-  "authors": "John Her, Zheng Diao, Caleb J. Bashor",
+  "name": "Jane Doe",
+  "avatar": "/avatars/Jane.png"
+}
+```
+
+A finished alumni entry looks like this:
+
+```json
+{
+  "id": "jane-doe",
+  "name": "Jane Doe",
+  "occupation": "PhD, BioE",
+  "distinction": "Scientist, Example Therapeutics"
+}
+```
+
+### 3. Adding a Publication
+
+1. **(Optional) Upload the PDF** to `public/pdfs/`, named `Year_Journal_Name(s)_Desc.pdf`:
+   - `Journal`: abbreviated, no spaces (`Nature`, `NatBiotechnol`, `CurrOpinBiomedEng`).
+   - `Name(s)`: first author's last name, plus any equal-contribution co-first authors.
+   - `Desc`: a short keyword from the title.
+
+   For example: `2026_Nature_Rai_OConnell_CLASSIC.pdf`. If the paper isn't hosted here, link to the publisher or DOI page instead.
+2. **Open** `src/assets/content/publications.json` and add the entry **at the top** of the list (newest first, because file order = display order):
+
+```json
+{
+  "id": "2026_nature_doe",
+  "title": "Title of the research paper",
+  "authors": "Jane Doe*, John Smith*, Caleb J. Bashor",
   "journal": "Nature",
   "year": "2026",
-  "page": "15-22",
-  "url": "/pdfs/2026_Her_Nature.pdf"
+  "page": "640 (8057): 15-22",
+  "url": "/pdfs/2026_Nature_Doe_Smith_GeneticDesign.pdf"
 }
-
 ```
 
-#### Entry with an external Video Link:
+| Field | Required | Notes |
+| :-- | :-- | :-- |
+| `id` | yes | `year_journal_firstauthor`, lowercase, with spaces in the journal name replaced by `-`. Examples: `2025_science_yang`, `2024_curr-opin-biomed-eng_rai`. |
+| `title`, `authors`, `journal` | yes | `authors` is shown exactly as typed. Mark equal contribution / co-corresponding authors with `*`. |
+| `year` | yes | Text in quotes, e.g. `"2026"` (it can also be `"In Press"`). |
+| `page` | yes | Volume/issue/pages or article number. Use `""` if not available yet; nothing is shown. |
+| `url` | no | Local PDF (`"/pdfs/..."`) or external link (`"https://doi.org/..."`). Shown as the **PDF** icon. |
+| `videoUrl` | no | Link to a video (YouTube, JoVE, …). Shown as the **video** icon. |
+| `features` | no | Sub-bullets for press coverage, perspectives, covers (see below). |
 
-Add a `"videoUrl"` property targeting YouTube, JoVE, or any other hosting site:
+**Press features / highlights.** Add a `features` list. Each item needs `text`; `url` is optional (without it the line is plain text). Links can be external or files in `public/`:
 
 ```json
-  "url": "/pdfs/Her_Science_2019.pdf",
-  "videoUrl": "https://www.youtube.com/..."
-
+"features": [
+  {
+    "text": "Perspective by A. Author in Science 363(6440): 531",
+    "url": "/pdfs/2019_Science_Ng_Perspective.pdf"
+  },
+  {
+    "text": "News & Views in Nature Biotechnology 37: 729",
+    "url": "https://www.nature.com/articles/..."
+  },
+  {
+    "text": "Featured on the cover of Nature Biotechnology",
+    "url": "/images/nbt2018-cover.jpg"
+  }
+]
 ```
 
-#### Entry with Press Features / News Highlights:
+### 4. Updating General Text
 
-Add a `"features"` array to include sub-links highlighting secondary coverage:
-
-```json
-  "features": [
-    {
-      "text": "Perspective by Mike May in Nature",
-      "url": "/pdfs/Nature_Perspective.pdf"
-    },
-    {
-      "text": "News & Views Feature in Nature Biotechnology",
-      "url": "https://www.nature.com/articles/..."
-    }
-  ]
-
-```
-
-### 4. Updating General Text (About, Contact, Research)
-
-#### About Text
-
-Modify `about.json` to change the core lab mission statement.
+**About** (`about.json`): the "What we do" heading and sentence.
 
 ```json
 {
-  "title": "The Bashor Lab (What we do)",
-  "description": "We use synthetic biology approaches to design, build, and test artificial regulatory programs in human cells. This not only provides insight into the design logic of natural regulation, but also allows us to predictively alter cellular phenotype to create powerful cell-based biotechnologies."
+  "title": "WHAT WE DO",
+  "description": "The goal of our work is to use synthetic regulatory circuits to reprogram the behavior of human cells."
 }
-
 ```
 
-#### Contact Details
+**Research** (`research.json`): `mainTitle` is the section heading, and each item in `sections` is one block on the page. You can edit, add, remove or reorder them freely.
 
-Modify `contact.json` if office phone numbers, emails, or room locations change.
+```json
+{
+  "mainTitle": "OUR RESEARCH",
+  "sections": [
+    {
+      "heading": "Synthetic Regulatory Circuits",
+      "content": "Our work explores the fundamentals of gene expression control..."
+    }
+  ]
+}
+```
+
+**Contact** (`contact.json`). `email` must be a valid email address or the build fails.
 
 ```json
 {
@@ -134,80 +181,80 @@ Modify `contact.json` if office phone numbers, emails, or room locations change.
   "phone": "(713) 348-8231",
   "address": "BRC 815, 6500 Main St., Rice University, Houston, TX 77030"
 }
-
 ```
 
-#### Research Pillars
+### 5. Things Not in JSON
 
-Modify `research.json`. You can rewrite descriptions or change the `heading` keys to instantly update the research theme blocks on the front page.
+A few items are written directly in the code. Edit them carefully and preview before pushing:
 
-```json
-{
-  "mainTitle": "OUR RESEARCH",
-  "sections": [
-    {
-      "heading": "Synthetic Regulatory Circuits",
-      "content": "Our work explores the fundamentals of gene expression control in mammalian cells. By leveraging multi-scale regulatory control, we can engineer stable, precise control over complex multi-gene expression programs that can both report on and reprogram cellular function."
-    },
-    ...
-  ]
-}
-
-```
+| What | Where |
+| :-- | :-- |
+| Instagram / GitHub / X links, menu items | `src/components/Navbar.astro` (`socialLinks`, `navLinks`) |
+| "WELCOME TO THE BASHOR LAB" typewriter title | `src/components/Navbar.astro` (`const text = ...`) |
+| "Find more publications on PubMed" link | `src/components/Publications.astro` |
+| Section headings "PUBLICATIONS", "OUR GROUP", "OUR ALUMNI" | `Publications.astro`, `Members.astro`, `Alumni.astro` in `src/components/` |
+| Browser tab titles | `src/pages/index.astro`, `src/pages/alumnipage.astro` |
+| Backgrounds, icons, fonts | `src/assets/` (images) and `src/fonts/` |
 
 ---
 
-## Technical Setup & Local Testing
+## Validation
 
-If you want to view your changes locally on your computer before pushing them live:
+`src/content.config.ts` defines the required fields and types for every JSON file except `alumni_avatars.json`. The build checks every entry against these rules, and if anything is missing or the wrong type it **fails** with a message naming the file and field. A failed build never reaches the live site. If you want to add a **new field**, it must be added to `content.config.ts` (and to the component that displays it), or it is silently ignored.
 
-### Prerequisites
+---
 
-Make sure you have Node.js installed on your machine.
+## Previewing Locally (recommended for anything beyond a typo)
 
-### Instructions
+**Prerequisite:** [Node.js](https://nodejs.org) version **22.12 or newer**.
 
-1. Clone the repository and navigate into the project folder.
-2. Install dependencies:
 ```bash
-npm install
-
+npm install        # first time only
+npm run dev        # live preview at http://localhost:4321, updates as you save
 ```
 
+Before pushing, run a production build. This is the same check GitHub runs:
 
-3. Start the local development server:
 ```bash
-npm run dev
-
+npm run build      # validates all JSON and builds to ./dist/
+npm run preview    # (optional) view the built site
 ```
 
+| Command | Action |
+| :-- | :-- |
+| `npm install` | Install dependencies |
+| `npm run dev` | Start local dev server at `localhost:4321` |
+| `npm run build` | Validate content and build the production site to `./dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run astro check` | Type/diagnostics check |
 
-4. Open `http://localhost:4321` in your browser to see your live changes as you save files.
-5. To test a production-ready build locally, run:
-```bash
-npm run build
-npm run preview
-
-```
-### Astro JS Commands
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+**No local setup?** You can edit JSON files directly on github.com (pencil icon) and upload photos/PDFs with **Add file → Upload files**. Committing to `main` publishes immediately, so double-check commas and quotes. Then follow the deployment in the **Actions** tab.
 
 ---
 
 ## Deployment (Going Live)
 
-The deployment pipeline is fully automated using GitHub Workflows.
+The site is hosted on **GitHub Pages** and served at the custom domain **bashorlab.rice.edu**. There is no separate server to upload to.
 
-1. **Commit and Push:** Once you've completed your edits (either locally or directly on GitHub), commit your changes and sync/push them to the `main` branch.
-2. **Automated Build:** Pushing to `main` instantly triggers a GitHub Action (`deploy-release.yml`).
-3. **Download Package:** Go to the **Releases** page of your GitHub repository. You will see a newly generated release containing a downloadable `.zip` file of your compiled website.
-4. **Server Upload:** Download that generated `.zip` artifact from the releases page and upload its extracted contents to your web hosting server.
+1. **Commit and push to `main`.** Every push to `main` publishes, so only push finished changes.
+2. **GitHub Actions builds and deploys** automatically (`.github/workflows/deploy-release.yml`). Follow progress under the repository's **Actions** tab.
+3. **Live in a few minutes** at https://bashorlab.rice.edu. Hard-refresh (Cmd/Ctrl + Shift + R) if you still see the old version.
+
+If the run shows a **red ✗**, the build failed and the live site still shows the previous version. Open the failed run, read the error (usually a JSON typo or a missing field), fix it, and push again. To redeploy without changes, use **Actions → Build, Release, and Deploy Astro Site → Run workflow**.
+
+> The workflow also creates a GitHub **Release** with a `.zip` of the build on every push. This is a leftover from an older hosting setup and is **not** needed for deployment. You can ignore it.
+
+The custom domain is configured in the repository's **Settings → Pages**, not in a file in this repo.
+
+---
+
+## Troubleshooting
+
+| Symptom | Likely cause |
+| :-- | :-- |
+| Build fails with a schema/validation error | A required field is missing or misspelled, or `email` is invalid. The error names the file and entry. |
+| Build fails with "Unexpected token" / JSON parse error | Missing or extra comma, or a missing quote/bracket. |
+| Photo doesn't show | Path doesn't match the file name exactly (case!), or the path is missing the leading `/avatars/`. |
+| PDF/feature link gives "page not found" | File isn't in `public/pdfs/` with that exact name, or an external link is missing `https://`. |
+| New member/paper appears in the wrong spot | Order follows the JSON file. Move the block. |
+| Change pushed but site unchanged | Check the Actions tab for a failed run, then hard-refresh the browser. |

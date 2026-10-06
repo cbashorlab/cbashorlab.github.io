@@ -1,5 +1,23 @@
 [
   {
+    "id": "2026_nat-biotechnol_rai",
+    "title": "Shotgun engineering fires up mammalian metabolic design",
+    "authors": "Kshitij Rai, Caleb J. Bashor",
+    "journal": "Nature Biotechnology",
+    "year": "2026",
+    "page": "",
+    "url": "/pdfs/2026_NatBiotechnol_Rai_ShotgunEngineering.pdf"
+  },
+  {
+    "id": "2026_biorxiv_streletskaia",
+    "title": "Optogenetic BMP4 models symmetry breaking and primitive streak formation in hPSCs",
+    "authors": "Alena Streletskaia, Caleb J. Bashor, Aryeh Warmflash",
+    "journal": "bioRxiv",
+    "year": "2026",
+    "page": "",
+    "url": "https://doi.org/10.64898/2026.10.01.755984"
+  },
+  {
     "id": "2026_adv-drug-deliv-rev_yang",
     "title": "Opportunities for artificial intelligence and synthetic biology in designing living drug delivery systems",
     "authors": "Jason H. Yang*, Caleb J. Bashor*",
@@ -15,7 +33,7 @@
     "journal": "Nature",
     "year": "2026",
     "page": "1-10",
-    "url": "/pdfs/Rai_OConnell_CLASSIC.pdf"
+    "url": "/pdfs/2026_Nature_Rai_OConnell_CLASSIC.pdf"
   },
   {
     "id": "2025_science_yang",
@@ -28,7 +46,7 @@
     "features": [
       {
         "text": "Comment in Clinical and Translational Medicine 15(5):e70328",
-        "url": "/pdfs/Walters_Yang_2025.pdf"
+        "url": "/pdfs/2025_ClinTranslMed_Walters_Yang_SenseAndRespond.pdf"
       }
     ]
   },
@@ -39,7 +57,7 @@
     "journal": "Current Opinion in Biomedical Engineering",
     "year": "2024",
     "page": "31: 100553",
-    "url": "/pdfs/2024_ML_synBio_review.pdf"
+    "url": "/pdfs/2024_CurrOpinBiomedEng_Rai_MLSynBio.pdf"
   },
   {
     "id": "2023_elife_farahani",
@@ -48,7 +66,7 @@
     "journal": "eLife",
     "year": "2023",
     "page": "12: e82863",
-    "url": "/pdfs/eLife_2023.pdf"
+    "url": "/pdfs/2023_eLife_Farahani_pYtags.pdf"
   },
   {
     "id": "2023_cell_bragdon",
@@ -57,7 +75,7 @@
     "journal": "Cell",
     "year": "2023",
     "page": "186 (18): 1-16",
-    "url": "/pdfs/2022_Bashor_BioRXiv.pdf"
+    "url": "/pdfs/2023_Cell_Bragdon_CooperativeAssembly.pdf"
   },
   {
     "id": "2022_nat-rev-drug-discov_bashor",
@@ -66,7 +84,7 @@
     "journal": "Nature Reviews Drug Discovery",
     "year": "2022",
     "page": "21 (9): 655-675",
-    "url": "/pdfs/Bashor_et_al-2022-Nature_Reviews_Drug_Discovery.pdf"
+    "url": "/pdfs/2022_NatRevDrugDiscov_Bashor_CellTherapeutics.pdf"
   },
   {
     "id": "2019_nat-chem-biol_yang",
@@ -75,7 +93,7 @@
     "journal": "Nature Chemical Biology",
     "year": "2019",
     "page": "16 (2): 110-111",
-    "url": "/pdfs/Yang_Nat-ChemBio_2019.pdf"
+    "url": "/pdfs/2019_NatChemBiol_Yang_SignalingCircuits.pdf"
   },
   {
     "id": "2019_jove_heins",
@@ -84,7 +102,7 @@
     "journal": "Journal of Visualized Experiments (JoVE)",
     "year": "2019",
     "page": "147: 10-3791",
-    "url": "/pdfs/Heins_Jove_2019.pdf",
+    "url": "/pdfs/2019_JoVE_Heins_eVOLVER.pdf",
     "videoUrl": "https://www.jove.com/video/59652/designing-automated-high-throughput-continuous-cell-growth"
   },
   {
@@ -94,24 +112,24 @@
     "journal": "Cell",
     "year": "2019",
     "page": "177 (3): 521-523",
-    "url": "/pdfs/OConnell_Cell_2019.pdf"
+    "url": "/pdfs/2019_Cell_OConnell_MatingPathway.pdf"
   },
   {
     "id": "2019_science_bashor",
     "title": "Complex signal processing in synthetic gene circuits using cooperative regulatory assemblies",
-    "authors": "Caleb J. Bashor, Nikit Patel, Sandeep Choubey, Ali Beyzavi, Jané Kondev, James J. Collins, Ahmad S. Khalil",
+    "authors": "Caleb J. Bashor*, Nikit Patel*, Sandeep Choubey, Ali Beyzavi, Jané Kondev, James J. Collins, Ahmad S. Khalil",
     "journal": "Science",
     "year": "2019",
     "page": "364 (6440): 593-597",
-    "url": "/pdfs/Bashor_Science_2019.pdf",
+    "url": "/pdfs/2019_Science_Bashor_Patel_CooperativeAssemblies.pdf",
     "features": [
       {
-        "text": "Perspective by Andrew H. Ng & Hana El-Samad in Science 363(6440): 531",
-        "url": "/pdfs/Bashor_Science_2019.pdf"
+        "text": "Perspective by Andrew H. Ng & Hana El-Samad in Science 364(6440): 531",
+        "url": "https://doi.org/10.1126/science.aax4556"
       },
       {
         "text": "News & Views Feature by Ross Cloney in Nature Biotechnology 37: 729",
-        "url": "www.nature.com/articles/s41587-019-0182-3"
+        "url": "https://www.nature.com/articles/s41587-019-0182-3"
       }
     ]
   },
@@ -122,7 +140,7 @@
     "journal": "Nature Biotechnology",
     "year": "2018",
     "page": "36 (7): 614-623",
-    "url": "/pdfs/Wong_NatBiotech_2018.pdf",
+    "url": "/pdfs/2018_NatBiotechnol_Wong_eVOLVER.pdf",
     "features": [
       {
         "text": "Technology Feature by Mike May in Nature 569: 587",
@@ -141,7 +159,7 @@
     "journal": "Annual Review of Biophysics",
     "year": "2018",
     "page": "47 (21): 399-423",
-    "url": "/pdfs/Bashor_AnnuRevBioPhys_2018.pdf"
+    "url": "/pdfs/2018_AnnuRevBiophys_Bashor_BiologicalRegulation.pdf"
   },
   {
     "id": "2016_pnas_gordley",
@@ -150,7 +168,7 @@
     "journal": "Proceedings of the National Academy of Sciences (PNAS)",
     "year": "2016",
     "page": "113 (47): 13528-13533",
-    "url": "/pdfs/Gordley_PNAS_2016.pdf"
+    "url": "/pdfs/2016_PNAS_Gordley_PhosphoRegulons.pdf"
   },
   {
     "id": "2016_nat-chem-biol_chan",
@@ -159,7 +177,7 @@
     "journal": "Nature Chemical Biology",
     "year": "2016",
     "page": "12 (2): 82-86",
-    "url": "/pdfs/Chan_NatChemBio_2016.pdf"
+    "url": "/pdfs/2016_NatChemBiol_Chan_KillSwitches.pdf"
   },
   {
     "id": "2014_cell_keung",
@@ -168,7 +186,7 @@
     "journal": "Cell",
     "year": "2014",
     "page": "158: 110-120",
-    "url": "/pdfs/Keung_Cell_2014.pdf"
+    "url": "/pdfs/2014_Cell_Keung_ChromatinRegulators.pdf"
   },
   {
     "id": "2014_nat-rev-microbiol_cameron",
@@ -177,7 +195,7 @@
     "journal": "Nature Reviews Microbiology",
     "year": "2014",
     "page": "12 (5): 381-390",
-    "url": "/pdfs/Cameron_NatRevMicrobiol_2014.pdf"
+    "url": "/pdfs/2014_NatRevMicrobiol_Cameron_Bashor_SynBioHistory.pdf"
   },
   {
     "id": "2012_nat-biotechnol_bashor",
@@ -186,7 +204,7 @@
     "journal": "Nature Biotechnology",
     "year": "2012",
     "page": "30 (11): 1061-1062",
-    "url": "/pdfs/Bashor_NatBiotech_2012.pdf"
+    "url": "/pdfs/2012_NatBiotechnol_Bashor_RNAProcessing.pdf"
   },
   {
     "id": "2012_cell_khalil",
@@ -195,7 +213,7 @@
     "journal": "Cell",
     "year": "2012",
     "page": "150 (3): 647-658",
-    "url": "/pdfs/Khalil_Cell_2012.pdf"
+    "url": "/pdfs/2012_Cell_Khalil_Lu_Bashor_TranscriptionFramework.pdf"
   },
   {
     "id": "2010_annu-rev-biophys_bashor",
@@ -204,7 +222,7 @@
     "journal": "Annual Review of Biophysics",
     "year": "2010",
     "page": "39: 515-537",
-    "url": "/pdfs/Bashor_AnnuRevBioPhys_2010.pdf"
+    "url": "/pdfs/2010_AnnuRevBiophys_Bashor_RewiringCells.pdf"
   },
   {
     "id": "2008_science_bashor",
@@ -213,6 +231,6 @@
     "journal": "Science",
     "year": "2008",
     "page": "319 (5869): 1539-1543",
-    "url": "/pdfs/Bashor_Science_2008.pdf"
+    "url": "/pdfs/2008_Science_Bashor_ScaffoldInteractions.pdf"
   }
 ]

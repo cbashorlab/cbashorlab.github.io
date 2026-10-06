@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Static marketing/landing site for The Bashor Lab (synthetic biology lab at Rice University), built with Astro 6 and Tailwind CSS 4. Content is decoupled from code: all text and listings live in JSON files validated by Astro Content Collections, so most updates are JSON edits, not code changes. Requires Node >= 22.12.0.
+Static marketing/landing site for The Bashor Lab (synthetic biology lab at Rice University), built with Astro 7 and Tailwind CSS 4. Content is decoupled from code: all text and listings live in JSON files validated by Astro Content Collections, so most updates are JSON edits, not code changes. Requires Node >= 22.12.0.
 
 ## Commands
 
@@ -32,4 +32,4 @@ There is no test suite or linter configured. `npm run build` is the main correct
 
 ## Deployment
 
-Pushing to `main` triggers `.github/workflows/deploy-release.yml`, which builds twice: once deployed live to GitHub Pages, and once zipped as a downloadable GitHub Release asset (tagged with the commit SHA) for manual upload to an external host. Do not push to `main` casually — every push publishes.
+Pushing to `main` triggers `.github/workflows/deploy-release.yml`, which builds and deploys to GitHub Pages. The live site, https://bashorlab.rice.edu, is served directly from GitHub Pages via a custom domain configured in repo Settings → Pages (there is no CNAME file in the repo), so the site is served at the root and `BASE_URL` is `/`. The workflow also builds a second time and attaches a zip to a GitHub Release tagged with the commit SHA; that is a leftover from an older external-host setup and is not part of deployment. Do not push to `main` casually — every push publishes.
